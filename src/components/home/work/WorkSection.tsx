@@ -62,12 +62,12 @@ export const WorkSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-bree mb-4 text-3xl font-bold tracking-tight md:text-5xl">
+            <h2 className="font-bree mb-4 text-3xl font-bold tracking-wide md:text-5xl">
               <span className="bg-linear-to-r from-indigo-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 How I Actually Work
               </span>
             </h2>
-            <p className="text-muted-foreground/60 font-sans text-xl font-light italic">
+            <p className="text-muted-foreground/80 font-sans text-xl font-light italic">
               (On Real Projects)
             </p>
           </motion.div>

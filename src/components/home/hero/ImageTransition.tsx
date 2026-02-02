@@ -27,10 +27,9 @@ export const ImageTransition = () => {
 
   return (
     <div className="relative h-full w-full overflow-hidden rounded-2xl">
-      {/* Shimmer / Glare Overlay - Persistent */}
       <div className="pointer-events-none absolute inset-0 z-20 bg-linear-to-tr from-pink-600/30 via-transparent to-transparent mix-blend-overlay" />
 
-      <AnimatePresence mode="popLayout">
+      <AnimatePresence mode="popLayout" initial={false}>
         <motion.div
           key={index}
           initial={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
@@ -47,6 +46,7 @@ export const ImageTransition = () => {
             alt={`Slideshow Image ${index + 1}`}
             fill
             className="object-cover"
+            sizes="(max-width: 768px) 300px, 350px"
             priority
           />
         </motion.div>

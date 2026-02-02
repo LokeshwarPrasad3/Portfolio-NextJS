@@ -131,7 +131,7 @@ export const QuizCard = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               className={cn(
-                "mt-2 text-center text-xs font-medium",
+                "mt-2 text-center text-sm font-medium",
                 isCorrect ? "text-emerald-400" : "text-neutral-400"
               )}
             >

@@ -15,7 +15,7 @@ export const Footer = () => {
         {/* 2. CTA Strip */}
         <div className="mb-20 flex flex-col items-center justify-between gap-6 rounded-2xl border border-white/5 bg-white/5 p-8 backdrop-blur-md sm:flex-row md:px-12">
           <div className="text-center sm:text-left">
-            <h3 className="font-bree text-2xl font-bold text-white">Have an idea?</h3>
+            <h2 className="font-bree text-2xl font-bold text-white">Have an idea?</h2>
             <p className="text-muted-foreground">
               Let’s build something clean, fast, and scalable.
             </p>

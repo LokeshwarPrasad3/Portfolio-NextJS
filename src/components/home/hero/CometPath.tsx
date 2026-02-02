@@ -25,7 +25,7 @@ export default function CometPath() {
   }, [steps, stepSize]);
 
   return (
-    <div className="absolute -top-34 -left-10 w-fit rotate-180">
+    <div className="absolute -top-34 left-0 w-fit rotate-180 md:-left-10">
       <svg
         width={size}
         height={size}

@@ -2,12 +2,19 @@
 
 import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
-import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
-import { CodeFragment } from "./CodeFragment";
-import CometPath from "./CometPath";
+import { motion, useTransform, useSpring, useMotionValue } from "motion/react";
+import { ArrowRight, Mail } from "lucide-react";
+import Image from "next/image";
+import dynamic from "next/dynamic";
 import { ImageTransition } from "./ImageTransition";
 import { ToolButton } from "./ToolButton";
+import DecorativeImage1 from "@/assets/images/transition/decorative-bg-1.jpeg";
+import DecorativeImage2 from "@/assets/images/transition/decorative-bg-2.jpeg";
+
+const CodeFragment = dynamic(() => import("./CodeFragment").then((mod) => mod.CodeFragment), {
+  ssr: false,
+});
+const CometPath = dynamic(() => import("./CometPath"), { ssr: false });
 
 // --- Components ---
 
@@ -64,7 +71,7 @@ export const HeroSection = () => {
   return (
     <section
       onMouseMove={handleMouseMove}
-      className="relative flex min-h-[90vh] w-full items-center justify-center overflow-hidden px-6 lg:px-12"
+      className="relative flex min-h-[90vh] w-full items-center justify-center overflow-hidden px-6 pt-28 pb-20 md:pt-32 lg:px-12 lg:pt-0 lg:pb-0"
     >
       {/* --- Subtle Background Noise/Gradient --- */}
       {/* <div className="absolute inset-0 -z-50 pointer-events-none opacity-20">
@@ -72,9 +79,9 @@ export const HeroSection = () => {
                 <div className="absolute bottom-[-10%] left-[-5%] w-[800px] h-[800px] bg-pink-500/5 rounded-full blur-[140px]" />
             </div> */}
 
-      <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-between gap-12">
+      <div className="mx-auto flex h-full w-full max-w-7xl flex-col-reverse items-center justify-center gap-12 lg:flex-row lg:justify-between">
         {/* --- LEFT SIDE: Content (Col span 6) --- */}
-        <div className="relative z-10 flex w-fit flex-col items-start justify-center gap-6">
+        <div className="relative z-10 flex w-full flex-col items-center justify-center gap-6 text-center lg:w-fit lg:items-start lg:text-left">
           <CometPath />
 
           {/* 1. Greeting & Typewriter */}
@@ -111,7 +118,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-wrap items-center gap-4 pt-4"
+            className="flex flex-wrap items-center justify-center gap-4 pt-4 lg:justify-start"
           >
             <ToolButton icon={Mail}>Hire Me</ToolButton>
             <ToolButton variant="secondary" icon={ArrowRight}>
@@ -123,18 +130,22 @@ export const HeroSection = () => {
         </div>
 
         {/* --- RIGHT SIDE: The Stack (Col span 6) --- */}
-        <div className="perspective-1000 relative left-15 flex h-[600px] w-full max-w-3xl items-center justify-center">
+        <div className="perspective-1000 relative flex h-[450px] w-full max-w-[300px] items-center justify-center sm:h-[550px] sm:max-w-xl lg:left-20 lg:h-[600px] lg:max-w-3xl 2xl:left-15">
           {/* STACK LAYER 1: Background Images (Drift, Blur, Low Opacity) */}
           <motion.div
             animate={{ y: [-15, 15, -15] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
             style={{ x: moveBack }}
-            className="pointer-events-none absolute top-[0%] right-[10%] z-0 h-[220px] w-[200px] overflow-hidden rounded-lg border border-white/5 opacity-20 blur-[2px] select-none"
+            className="pointer-events-none absolute -top-[4%] -right-[10%] z-0 h-[220px] w-[200px] overflow-hidden rounded-lg border border-white/5 opacity-20 blur-[2px] select-none md:top-[0%] md:right-[10%]"
           >
-            <img
-              src="https://picsum.photos/300/400?random=10"
-              alt=""
-              className="h-full w-full object-cover grayscale"
+            <Image
+              src={DecorativeImage2}
+              alt="Decorative background"
+              fill
+              sizes="200px"
+              placeholder="blur"
+              role="presentation"
+              className="object-cover grayscale"
             />
           </motion.div>
 
@@ -142,23 +153,24 @@ export const HeroSection = () => {
             animate={{ y: [15, -15, 15] }} // Opposite drift
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
             style={{ x: moveBack }}
-            className="pointer-events-none absolute bottom-[54%] left-[5%] z-0 h-[240px] w-[180px] overflow-hidden rounded-lg border border-white/5 opacity-30 blur-[2px] select-none lg:left-[12%]"
+            className="pointer-events-none absolute -bottom-[6%] -left-[10%] z-0 h-[240px] w-[180px] overflow-hidden rounded-lg border border-white/5 opacity-30 blur-[2px] select-none md:bottom-[54%] md:left-[5%] lg:left-[12%]"
           >
-            <img
-              src="https://picsum.photos/300/400?random=11"
-              alt=""
-              className="h-full w-full object-cover mix-blend-multiply grayscale dark:mix-blend-screen"
+            <Image
+              src={DecorativeImage1}
+              alt="Decorative background"
+              fill
+              sizes="180px"
+              placeholder="blur"
+              role="presentation"
+              className="object-cover mix-blend-multiply grayscale dark:mix-blend-screen"
             />
           </motion.div>
 
           {/* STACK LAYER 2: Main Image (Anchor, Sharp, Center) */}
           {/* This is the center of the visual gravity */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
             style={{ rotateX: tiltImg, rotateY: tiltImg }} // Micro tilt
-            className="group relative z-20 aspect-[3/4] w-[300px] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 shadow-2xl md:w-[350px]"
+            className="group relative z-20 aspect-[3/4] w-[300px] overflow-hidden rounded-2xl border border-white/10 bg-linear-to-r from-pink-500/30 to-purple-600/30 shadow-2xl md:w-[350px]"
           >
             <ImageTransition />
           </motion.div>
@@ -170,7 +182,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="absolute -bottom-6 left-[8%] z-30 w-[80%] transition-all duration-300 hover:z-40 md:left-[15%] md:w-auto lg:left-[5%]"
+            className="absolute -bottom-6 left-[8%] z-30 hidden w-[80%] transition-all duration-300 hover:z-40 md:left-[15%] md:block md:w-auto lg:left-[5%]"
           >
             <div className="scale-90 transform overflow-hidden rounded-xl shadow-2xl shadow-black/50 sm:scale-100">
               <CodeFragment />

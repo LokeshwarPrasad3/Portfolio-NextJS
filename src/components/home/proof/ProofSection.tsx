@@ -20,13 +20,13 @@ export const ProofSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-bree mb-4 text-4xl font-bold tracking-tight md:text-5xl">
+            <h2 className="font-bree mb-4 text-4xl font-bold tracking-wide md:text-5xl">
               <span className="bg-linear-to-r from-emerald-400 via-green-500 to-teal-500 bg-clip-text text-transparent">
                 Proof of Skill
               </span>{" "}
-              <span className="text-muted-foreground/50 mt-2 block text-2xl font-light italic sm:mt-0 sm:inline md:text-3xl">
+              {/* <span className="text-muted-foreground/50 mt-2 block text-2xl font-light italic sm:mt-0 sm:inline md:text-3xl">
                 (Not Just Claims)
-              </span>
+              </span> */}
             </h2>
             <p className="text-muted-foreground max-w-xl text-lg">
               Anyone can say "I care about performance." This page proves it.
@@ -78,19 +78,6 @@ export const ProofSection = () => {
             gradient="from-purple-500/20 to-pink-500/20"
           />
         </div>
-
-        {/* 3. Self-Aware Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 1 }}
-          className="mt-16 text-center"
-        >
-          <p className="text-muted-foreground/40 font-mono text-xs">
-            // Yep, this section measures itself while you scroll.
-          </p>
-        </motion.div>
       </div>
     </section>
   );

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Overpass, Bree_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import { LightRaysCanvas } from "@/components/background/LightRaysCanvas";
+
+import DynamicBackground from "@/components/background/DynamicBackground";
 // import { Meteors } from "@/components/ui/meteors";
 
 const overpass = Overpass({
@@ -30,7 +31,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${overpass.variable} ${breeSerif.variable} font-overpass dark antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <LightRaysCanvas />
+          <DynamicBackground />
           {/* <Meteors number={20} /> */}
           {children}
         </ThemeProvider>

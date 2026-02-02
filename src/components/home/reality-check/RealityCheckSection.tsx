@@ -15,7 +15,7 @@ export const RealityCheckSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-bree mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+            <h2 className="font-bree mb-4 text-3xl font-bold tracking-wide md:text-4xl">
               <span className="bg-linear-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                 Quick Frontend Reality Check
               </span>
@@ -37,7 +37,7 @@ export const RealityCheckSection = () => {
           transition={{ delay: 0.8, duration: 1 }}
           className="mt-12 text-center"
         >
-          <p className="text-muted-foreground/50 text-sm font-medium">
+          <p className="text-muted-foreground text-base font-medium">
             Don’t worry. No one gets this right on first scroll.
           </p>
         </motion.div>

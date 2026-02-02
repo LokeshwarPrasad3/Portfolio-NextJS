@@ -80,7 +80,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   return (
     <motion.div
       animate={{
-        backdropFilter: visible ? "blur(10px)" : "none",
+        backdropFilter: visible ? "blur(4px)" : "none",
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
@@ -142,7 +142,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
     <motion.div
       animate={{
-        backdropFilter: visible ? "blur(10px)" : "none",
+        backdropFilter: visible ? "blur(4px)" : "none",
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
@@ -212,14 +212,14 @@ export const NavbarLogo = ({ url }: Props) => {
   return (
     <a href="#hero_section" className="flex items-center">
       <img
-        className="h-8 w-auto rounded-full 2xl:h-9"
+        className="h-7 w-auto rounded-full 2xl:h-8"
         src={typeof url === "string" ? url : url.src}
         alt="Lokeshwar"
       />
 
       {/* <Code2 className=" text-pink-500 animate-spin " /> */}
 
-      <span className="font-bree relative inline-block bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text pb-2 pl-3 text-2xl font-medium text-transparent 2xl:text-3xl">
+      <span className="font-bree relative inline-block bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text pb-2 pl-3 text-2xl font-medium text-transparent 2xl:text-2xl">
         Lokeshwar
         <svg
           className="absolute bottom-0.5 left-1.5 h-2.5 w-full text-purple-500 opacity-60 2xl:bottom-0"
