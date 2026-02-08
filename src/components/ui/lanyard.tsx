@@ -15,15 +15,6 @@ import {
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 import * as THREE from "three";
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      meshLineGeometry: any;
-      meshLineMaterial: any;
-    }
-  }
-}
-
 // replace with your own imports, see the usage snippet for details
 const cardGLB = "/lanyard/card.glb";
 const lanyard = "/lanyard/lanyard.png";

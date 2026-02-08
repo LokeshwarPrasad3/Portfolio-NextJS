@@ -1,9 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Bug, Coffee, Eye, Layers, Zap, Rocket, Clock } from "lucide-react";
-import { StatCard } from "./StatCard";
-import { InteractiveCard } from "./InteractiveCard";
 import TrafficChart from "@/components/analytics/TrafficChart";
 import { AnalyticsStatCards } from "@/components/analytics/StatCards";
 

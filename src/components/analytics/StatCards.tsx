@@ -4,6 +4,8 @@ import { Eye, Clock, Zap } from "lucide-react";
 import { useAnalytics } from "@/hooks/analytics/useAnalytics";
 import { StatCard } from "@/components/home/stats/StatCard";
 import { StatCardSkeleton } from "./AnalyticsSkeleton";
+import { format } from "date-fns";
+import { GA_ANALYTICS_START_DATE } from "@/lib/date/date.utils";
 
 export const AnalyticsStatCards = () => {
   const { data: analytics, isLoading } = useAnalytics();
@@ -25,13 +27,15 @@ export const AnalyticsStatCards = () => {
     return `${m}m ${s}s`;
   };
 
+  const readable = format(new Date(GA_ANALYTICS_START_DATE), "dd MMMM yyyy");
+
   return (
     <>
       <StatCard
         label="Total Visitors"
         value={analytics?.totalVisitors?.toLocaleString() || "0"}
         icon={Eye}
-        subtext="All time unique visitors"
+        subtext={`All time unique visitors from ${readable}`}
         gradient="from-blue-500/20 to-cyan-500/20"
         delay={0.1}
       />

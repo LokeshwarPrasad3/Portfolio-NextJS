@@ -1,6 +1,6 @@
 export interface MonthlyTrafficItem {
-  month: string;
-  visitors: number;
+  month: string; // "YYYYMM" format
+  users: number;
 }
 
 export interface AnalyticsOverview {
