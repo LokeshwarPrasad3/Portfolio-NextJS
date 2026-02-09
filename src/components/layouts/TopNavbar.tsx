@@ -12,17 +12,17 @@ import {
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
 import LokeshwarImage from "@/assets/images/transition/lokeshwar.jpg";
-import { Github, Star } from "lucide-react";
+import { GithubBadge } from "./GithubBadge";
 
 export function TopNavbar() {
   const navItems = [
     {
-      name: "Features",
-      link: "#features",
+      name: "Projects",
+      link: "#projects",
     },
     {
-      name: "Pricing",
-      link: "#pricing",
+      name: "Skills",
+      link: "#skills",
     },
     {
       name: "Contact",
@@ -38,20 +38,8 @@ export function TopNavbar() {
       <NavBody>
         <NavbarLogo url={LokeshwarImage} />
         <NavItems items={navItems} />
-        <div className="flex items-center gap-4">
-          <a
-            href="https://github.com/your-username/your-repo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 px-4 py-2 text-sm font-medium text-white shadow-md transition-all duration-200 hover:scale-[1.03] hover:shadow-lg hover:shadow-purple-500/30 active:scale-95"
-          >
-            <span>Star on GitHub</span>
-
-            <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-black/30 px-2 py-0.5 text-xs font-semibold">
-              <Star className="h-3 w-3 fill-yellow-300 text-yellow-300" />
-              35.1K
-            </span>
-          </a>
+        <div className="relative z-50 flex items-center gap-4">
+          <GithubBadge />
         </div>
       </NavBody>
 

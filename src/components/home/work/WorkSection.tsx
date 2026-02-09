@@ -52,7 +52,7 @@ export const WorkSection = () => {
   const [activeTrait, setActiveTrait] = useState(traits[0]);
 
   return (
-    <section className="relative w-full overflow-hidden bg-black/5 px-6 py-24 lg:px-12">
+    <section className="relative z-10 w-full overflow-hidden bg-black/5 px-6 py-24 lg:px-12">
       <div className="container mx-auto max-w-5xl">
         {/* Header */}
         <div className="mb-16 text-center">
@@ -122,7 +122,6 @@ export const WorkSection = () => {
             ))}
           </div>
 
-          {/* Right Column: Detail Card */}
           <div className="lg:col-span-7">
             <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-black/40 p-8 backdrop-blur-xl md:p-12">
               {/* Background Gradient Blob based on active trait */}

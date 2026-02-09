@@ -3,6 +3,7 @@ import { Overpass, Bree_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import QueryProvider from "@/providers/query-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 import DynamicBackground from "@/components/background/DynamicBackground";
 import Lanyard from "@/components/ui/lanyard";
@@ -37,6 +38,7 @@ export default function RootLayout({
             <DynamicBackground />
             <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
             <Meteors number={20} />
+            <Toaster position="top-center" richColors />
             {children}
           </QueryProvider>
         </ThemeProvider>

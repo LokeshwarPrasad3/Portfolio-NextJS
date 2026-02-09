@@ -8,6 +8,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { ImageTransition } from "./ImageTransition";
 import { ToolButton } from "./ToolButton";
+import { FeaturedBadge } from "./FeaturedBadge";
 import DecorativeImage1 from "@/assets/images/transition/decorative-bg-1.jpeg";
 import DecorativeImage2 from "@/assets/images/transition/decorative-bg-2.jpeg";
 
@@ -19,14 +20,11 @@ const Lanyard = dynamic(() => import("@/components/ui/lanyard"), {
   ssr: false,
 });
 
-// --- Components ---
-
 export const HeroSection = () => {
   const typedEl = useRef(null);
   const typed = useRef<Typed | null>(null);
   const [gradientClass, setGradientClass] = useState("from-pink-500 to-yellow-500");
 
-  // Mouse Position for Global Parallax (Subtle)
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const smoothX = useSpring(mouseX, { stiffness: 30, damping: 50 });
@@ -83,11 +81,9 @@ export const HeroSection = () => {
             </div> */}
 
       <div className="mx-auto flex h-full w-full max-w-7xl flex-col-reverse items-center justify-center gap-12 lg:flex-row lg:justify-between">
-        {/* --- LEFT SIDE: Content (Col span 6) --- */}
         <div className="relative z-10 flex w-full flex-col items-center justify-center gap-6 text-center lg:w-fit lg:items-start lg:text-left">
           <CometPath />
 
-          {/* 1. Greeting & Typewriter */}
           <div className="font-bree relative flex flex-col gap-2">
             <span className="text-foreground block text-2xl font-bold sm:text-3xl">Hey,</span>
             <h1 className="text-foreground text-4xl leading-tight font-medium tracking-wide md:text-5xl">
@@ -100,7 +96,6 @@ export const HeroSection = () => {
             </h1>
           </div>
 
-          {/* 2. Personal Bio */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -110,6 +105,8 @@ export const HeroSection = () => {
             I’m Lokeshwar Prasad Dewangan, a full-stack developer building modern, scalable web
             experiences with a strong focus on UI, performance, and thoughtful interactions.
           </motion.p>
+
+          <FeaturedBadge />
 
           {/* 3. CTAs */}
           <motion.div
@@ -127,9 +124,7 @@ export const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* --- RIGHT SIDE: The Stack (Col span 6) --- */}
         <div className="perspective-1000 relative flex h-[450px] w-full max-w-[300px] items-center justify-center sm:h-[550px] sm:max-w-xl lg:left-20 lg:h-[600px] lg:max-w-3xl 2xl:left-15">
-          {/* STACK LAYER 1: Background Images (Drift, Blur, Low Opacity) */}
           <motion.div
             animate={{ y: [-15, 15, -15] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
@@ -164,8 +159,6 @@ export const HeroSection = () => {
             />
           </motion.div>
 
-          {/* STACK LAYER 2: Main Image (Anchor, Sharp, Center) */}
-          {/* This is the center of the visual gravity */}
           <motion.div
             style={{ rotateX: tiltImg, rotateY: tiltImg }} // Micro tilt
             className="group relative z-20 aspect-[3/4] w-[300px] overflow-hidden rounded-2xl border border-white/10 bg-linear-to-r from-pink-500/30 to-purple-600/30 shadow-2xl md:w-[350px]"
@@ -173,8 +166,6 @@ export const HeroSection = () => {
             <ImageTransition />
           </motion.div>
 
-          {/* STACK LAYER 3: Code Fragment (Offset, Secondary) */}
-          {/* Positioned slightly below and offset, Z-index implies it's a separate 'tool' floating near the 'person' */}
           <motion.div
             style={{ x: moveMid, y: moveMid }}
             initial={{ opacity: 0, y: 20 }}

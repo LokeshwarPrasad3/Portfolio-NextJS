@@ -8,7 +8,6 @@ export const FunStatsSection = () => {
   return (
     <section className="relative z-10 w-full overflow-hidden px-6 py-24 lg:px-12">
       <div className="container mx-auto max-w-7xl">
-        {/* 1. Header */}
         <div className="mb-16 flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -31,12 +30,12 @@ export const FunStatsSection = () => {
           </motion.div>
         </div>
 
-        <div className="col-span-12 grid grid-cols-12 gap-6">
-          <div className="col-span-9">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+          <div className="order-2 col-span-1 lg:order-1 lg:col-span-9">
             <TrafficChart />
           </div>
 
-          <div className="col-span-3 grid gap-6">
+          <div className="order-1 col-span-1 grid grid-cols-1 gap-6 sm:grid-cols-3 lg:order-2 lg:col-span-3 lg:grid-cols-1">
             <AnalyticsStatCards />
 
             {/* <InteractiveCard /> */}

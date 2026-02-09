@@ -7,12 +7,10 @@ import { cn } from "@/lib/utils";
 
 export const Footer = () => {
   return (
-    <footer className="relative w-full overflow-hidden border-t border-white/5 bg-black/5 px-6 pt-20 pb-8 backdrop-blur-3xl lg:px-12">
-      {/* 1. Top Divider Glow */}
+    <footer className="relative z-10 w-full overflow-hidden border-t border-white/5 bg-black/5 px-6 pt-20 pb-8 backdrop-blur-3xl lg:px-12">
       <div className="absolute top-0 left-1/2 h-px w-full max-w-4xl -translate-x-1/2 bg-linear-to-r from-transparent via-white/20 to-transparent opacity-50" />
 
       <div className="container mx-auto max-w-7xl">
-        {/* 2. CTA Strip */}
         <div className="mb-20 flex flex-col items-center justify-between gap-6 rounded-2xl border border-white/5 bg-white/5 p-8 backdrop-blur-md sm:flex-row md:px-12">
           <div className="text-center sm:text-left">
             <h2 className="font-bree text-2xl font-bold text-white">Have an idea?</h2>
@@ -36,9 +34,7 @@ export const Footer = () => {
           </motion.button>
         </div>
 
-        {/* 3. Main Grid */}
         <div className="mb-20 grid grid-cols-1 gap-12 md:grid-cols-12">
-          {/* A. Brand / Signature */}
           <div className="flex flex-col gap-4 md:col-span-5">
             <h2 className="font-bree text-2xl font-bold tracking-tight text-white">
               Lokeshwar Prasad.
@@ -46,7 +42,6 @@ export const Footer = () => {
             <p className="text-muted-foreground/80 max-w-xs leading-relaxed">
               Full-Stack Developer who cares about details, performance, and user experience.
             </p>
-            {/* Social Icons (Mobile: Row, Desktop: Row) */}
             <div className="mt-2 flex items-center gap-4">
               {[
                 { icon: Github, href: "https://github.com", label: "GitHub" },
@@ -68,9 +63,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* B. Quick Links (Split into 2 cols for better spacing) */}
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-7">
-            {/* Column 1 */}
             <div className="flex flex-col gap-4">
               <h4 className="text-sm font-semibold tracking-wider text-white uppercase">Pages</h4>
               <div className="flex flex-col gap-2">
@@ -86,7 +79,6 @@ export const Footer = () => {
               </div>
             </div>
 
-            {/* Column 2 */}
             <div className="flex flex-col gap-4">
               <h4 className="text-sm font-semibold tracking-wider text-white uppercase">
                 Resources
@@ -106,7 +98,6 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* 4. Bottom Bar */}
         <div className="text-muted-foreground/40 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-center text-xs sm:flex-row sm:text-left">
           <p>© {new Date().getFullYear()} Lokeshwar Prasad Dewangan. All rights reserved.</p>
           <div className="flex items-center gap-1">
