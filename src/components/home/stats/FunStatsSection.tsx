@@ -17,15 +17,13 @@ export const FunStatsSection = () => {
           >
             <h2 className="font-bree mb-4 text-4xl font-bold tracking-wide md:text-5xl">
               <span className="bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">
-                By The Numbers
-              </span>{" "}
-              {/* <span className="text-muted-foreground/50 mt-2 block text-2xl font-light italic sm:mt-0 sm:inline md:text-3xl">
-                (But Make It Fun)
-              </span> */}
+                Website Traffic Overview
+              </span>
             </h2>
+
             <p className="text-muted-foreground max-w-xl text-lg">
-              Stats, experiments, and actual proof that I care about the user experience more than
-              my sleep schedule.
+              A snapshot of real user traffic, engagement metrics, and month-over-month growth
+              across the platform.
             </p>
           </motion.div>
         </div>

@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, X, HelpCircle, Trophy, PartyPopper } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import { toast } from "sonner";
 
-import confetti from "canvas-confetti";
+import { Confetti, type ConfettiRef } from "@/components/ui/confetti";
 
 interface Option {
   id: string;
@@ -16,15 +16,16 @@ interface Option {
 }
 
 const options: Option[] = [
-  { id: "A", text: '{ val: "150k" }', isCorrect: false },
-  { id: "B", text: "undefined", isCorrect: true },
-  { id: "C", text: "null", isCorrect: false },
-  { id: "D", text: "SyntaxError", isCorrect: false },
+  { id: "A", text: "true", isCorrect: false },
+  { id: "B", text: "false", isCorrect: true },
+  { id: "C", text: "NaN", isCorrect: false },
+  { id: "D", text: "undefined", isCorrect: false },
 ];
 
 export const QuizCard = () => {
   const [selected, setSelected] = useState<string | null>(null);
   const [hasAnswered, setHasAnswered] = useState(false);
+  const confettiRef = useRef<ConfettiRef>(null);
 
   const handleSelect = (optionId: string) => {
     if (hasAnswered) return;
@@ -34,25 +35,46 @@ export const QuizCard = () => {
     const isCorrect = options.find((o) => o.id === optionId)?.isCorrect;
 
     if (isCorrect) {
-      confetti({
+      // Fire confetti from the center-bottom
+      confettiRef.current?.fire({
         particleCount: 150,
-        spread: 60,
-        origin: { x: 0.5, y: 0.5 },
-        zIndex: 2147483647, // Max z-index to ensure visibility above everything
-        colors: ["#22c55e", "#10b981", "#34d399", "#fcd34d", "#f59e0b"], // Emerald and Gold theme
+        spread: 70,
+        origin: { x: 0.5, y: 0.8 },
+        colors: ["#22c55e", "#10b981", "#34d399", "#fcd34d", "#f59e0b"],
       });
 
-      toast.success("Correct! You're hired! Welcome to the team! 🚀", {
-        duration: 9000,
-        icon: "🎉",
-      });
+      toast.custom(
+        (t) => (
+          <div className="flex w-full max-w-xl items-center gap-4 rounded-xl border border-emerald-500/20 bg-neutral-900/95 p-4 shadow-2xl backdrop-blur-xl">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-500/20">
+              <PartyPopper size={24} className="text-emerald-400" />
+            </div>
+            <div className="flex-1">
+              <p className="text-lg font-bold text-white">Congratulations! 🚀</p>
+              <p className="text-sm text-neutral-400">
+                You are hired as a frontend developer! Welcome to the team.
+              </p>
+            </div>
+          </div>
+        ),
+        { duration: 4000 }
+      );
     } else {
-      toast.error(
-        "Gotcha! The newline after 'return' causes it to return undefined. Keep an eye on ASI! 👻",
-        {
-          duration: 3000,
-          icon: "😅",
-        }
+      toast.custom(
+        (t) => (
+          <div className="flex w-full max-w-xl items-center gap-4 rounded-xl border border-red-500/20 bg-neutral-900/95 p-4 shadow-2xl backdrop-blur-xl">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-500/20">
+              <X size={24} className="text-red-400" />
+            </div>
+            <div className="flex-1">
+              <p className="text-lg font-bold text-white">So close! 😅</p>
+              <p className="text-sm text-neutral-400">
+                0.1 + 0.2 is actually 0.30000000000000004 because of floating point math.
+              </p>
+            </div>
+          </div>
+        ),
+        { duration: 3000 }
       );
     }
   };
@@ -65,7 +87,7 @@ export const QuizCard = () => {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="group relative mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-1 backdrop-blur-xl"
+      className="group relative mx-auto w-full max-w-lg overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-1 backdrop-blur-xl"
     >
       <div
         className={cn(
@@ -84,8 +106,8 @@ export const QuizCard = () => {
             {hasAnswered && isCorrect ? <PartyPopper size={22} /> : <HelpCircle size={22} />}
           </div>
           <div className="flex flex-col">
-            <h3 className="text-lg font-medium text-white">Vibe Check</h3>
-            <span className="text-xs text-neutral-400">Can you pass the interview?</span>
+            <h3 className="text-xl font-bold text-white">JS Reality Check</h3>
+            <span className="text-xs text-neutral-400">Do you know your coercion?</span>
           </div>
         </div>
 
@@ -98,26 +120,18 @@ export const QuizCard = () => {
           </div>
 
           <div className="mt-4 space-y-2">
-            <p className="text-purple-400 italic">// Tricky logic test</p>
-            <div className="text-neutral-300">
-              <span className="text-pink-400">function</span>{" "}
-              <span className="text-blue-300">getSalary</span>() {"{"}
-            </div>
+            <p className="text-purple-400 italic">// JavaScript Magic 🪄</p>
+            <div className="text-neutral-300">console.log(</div>
             <div className="pl-4 text-neutral-300">
-              <span className="text-pink-400">return</span>
+              <span className="text-blue-400">0.1</span> +{" "}
+              <span className="text-blue-400">0.2</span> <span className="text-pink-400">===</span>{" "}
+              <span className="text-blue-400">0.3</span>
             </div>
-            <div className="pl-4 text-neutral-300">
-              {"{"} <span className="text-orange-300">val</span>:{" "}
-              <span className="text-green-300">"150k"</span> {"}"};
-            </div>
-            <div className="text-neutral-300">{"}"}</div>
-            <div className="mt-3 text-neutral-300">
-              console.log(<span className="text-blue-300">getSalary</span>());
-            </div>
+            <div className="text-neutral-300">);</div>
           </div>
         </div>
 
-        <p className="text-sm font-medium text-neutral-400">What does it return?</p>
+        <p className="text-base font-medium text-neutral-400">What does the console log?</p>
 
         <div className="grid grid-cols-2 gap-3">
           {options.map((option) => (
@@ -126,7 +140,7 @@ export const QuizCard = () => {
               onClick={() => handleSelect(option.id)}
               disabled={hasAnswered}
               className={cn(
-                "relative flex items-center justify-center gap-2 rounded-xl border px-4 py-3 text-lg font-medium transition-all duration-200",
+                "relative flex items-center justify-center gap-2 rounded-xl border px-4 py-3 text-sm font-medium transition-all duration-200",
                 // Default State
                 !hasAnswered &&
                   "border-white/10 bg-white/5 text-neutral-300 hover:scale-[1.02] hover:border-purple-500/30 hover:bg-purple-500/10",
@@ -174,15 +188,20 @@ export const QuizCard = () => {
               {isCorrect ? (
                 <>
                   <Trophy size={16} className="text-yellow-400" />
-                  <span>Correct! You just got the job.</span>
+                  <span>Correct! Enjoy your weekend.</span>
                 </>
               ) : (
-                <span>Too bad, we're broke! (Just kidding, try again)</span>
+                <span>Oh no! ... 📱</span>
               )}
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+      <Confetti
+        ref={confettiRef}
+        className="pointer-events-none absolute inset-0 z-50 size-full"
+        manualstart={true}
+      />
     </motion.div>
   );
 };
