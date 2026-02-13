@@ -57,7 +57,7 @@ export const QuizCard = () => {
             </div>
           </div>
         ),
-        { duration: 4000 }
+        { duration: 9000 }
       );
     } else {
       toast.custom(

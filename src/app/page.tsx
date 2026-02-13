@@ -21,7 +21,6 @@ export default function Home() {
         <Particles />
       </div> */}
 
-      <TopNavbar />
       {/* <CoolMode> */}
       <ClickSpark sparkColor="#fff" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
         <main className="relative z-10 w-full flex-1">

@@ -26,7 +26,7 @@ export function TopNavbar() {
     },
     {
       name: "Contact",
-      link: "#contact",
+      link: "/contact",
     },
   ];
 

@@ -6,6 +6,10 @@ import QueryProvider from "@/providers/query-provider";
 import { Toaster } from "@/components/ui/sonner";
 
 import Backgrounds from "@/components/layouts/Backgrounds";
+import { TopNavbar } from "@/components/layouts/TopNavbar";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
+import { BugButton } from "@/components/ui/bug-button";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const overpass = Overpass({
   variable: "--font-overpass",
@@ -33,9 +37,14 @@ export default function RootLayout({
       <body className={`${overpass.variable} ${breeSerif.variable} font-overpass dark antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <QueryProvider>
-            <Backgrounds />
-            <Toaster position="top-center" richColors />
-            {children}
+            <TooltipProvider>
+              <Backgrounds />
+              <TopNavbar />
+              <Toaster position="top-center" richColors />
+              <ScrollToTop />
+              <BugButton />
+              {children}
+            </TooltipProvider>
           </QueryProvider>
         </ThemeProvider>
       </body>

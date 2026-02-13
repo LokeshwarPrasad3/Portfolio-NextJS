@@ -1,9 +1,9 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { IconMenu2, IconX } from "@tabler/icons-react";
-import { Code2 } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react";
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 
 import React, { useRef, useState } from "react";
 
@@ -118,7 +118,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       )}
     >
       {items.map((item, idx) => (
-        <a
+        <Link
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
           className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
@@ -132,7 +132,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             />
           )}
           <span className="relative z-20">{item.name}</span>
-        </a>
+        </Link>
       ))}
     </motion.div>
   );
@@ -210,7 +210,7 @@ type Props = {
 
 export const NavbarLogo = ({ url }: Props) => {
   return (
-    <a href="#hero_section" className="flex items-center">
+    <Link href="/" className="relative z-50 flex items-center">
       <div className="relative h-7 w-7 2xl:h-8 2xl:w-8">
         <Image
           className="rounded-full object-cover"
@@ -234,7 +234,7 @@ export const NavbarLogo = ({ url }: Props) => {
           <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
         </svg>
       </span>
-    </a>
+    </Link>
   );
 };
 
