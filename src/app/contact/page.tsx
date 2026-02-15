@@ -12,11 +12,36 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ShineBorder } from "@/components/ui/shine-border";
-import { ArrowRight, Mail, MessageSquare, User } from "lucide-react";
+import { ArrowRight, Mail, MessageSquare, User, Tag, Loader2 } from "lucide-react";
+
+// Form & Validation
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { contactSchema, ContactFormData } from "@/schemas/contact";
+import { useSendMessage } from "@/hooks/useContact";
 
 export default function ContactPage() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  });
+
+  const { mutate: sendMessage, isPending } = useSendMessage();
+
+  const onSubmit = (data: ContactFormData) => {
+    sendMessage(data, {
+      onSuccess: () => {
+        reset();
+      },
+    });
+  };
+
   return (
-    <div className="bg-grid-white/[0.02] relative flex min-h-screen w-full items-center justify-center overflow-hidden antialiased">
+    <div className="bg-grid-white/[0.02] relative flex min-h-screen w-full items-center justify-center overflow-hidden pt-20 pb-10 antialiased">
       {/* Ambient Background Glows */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black mask-[radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <div className="pointer-events-none absolute top-0 left-1/2 h-full w-full max-w-7xl -translate-x-1/2">
@@ -49,7 +74,7 @@ export default function ContactPage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="px-8">
-              <form className="my-5 mb-8 grid gap-6">
+              <form onSubmit={handleSubmit(onSubmit)} className="my-5 mb-8 grid gap-6">
                 <div className="group grid gap-2">
                   <Label
                     htmlFor="name"
@@ -62,9 +87,11 @@ export default function ContactPage() {
                     <Input
                       id="name"
                       placeholder="Your Name"
+                      {...register("name")}
                       className="border-white/10 bg-white/5 pl-9 text-neutral-200 transition-all duration-300 placeholder:text-neutral-500 hover:bg-white/10 focus-visible:border-purple-500/50 focus-visible:ring-purple-500/50"
                     />
                   </div>
+                  {errors.name && <p className="text-xs text-red-400">{errors.name.message}</p>}
                 </div>
 
                 <div className="group grid gap-2">
@@ -80,9 +107,32 @@ export default function ContactPage() {
                       id="email"
                       type="email"
                       placeholder="name@example.com"
+                      {...register("email")}
                       className="border-white/10 bg-white/5 pl-9 text-neutral-200 transition-all duration-300 placeholder:text-neutral-500 hover:bg-white/10 focus-visible:border-pink-500/50 focus-visible:ring-pink-500/50"
                     />
                   </div>
+                  {errors.email && <p className="text-xs text-red-400">{errors.email.message}</p>}
+                </div>
+
+                <div className="group grid gap-2">
+                  <Label
+                    htmlFor="subject"
+                    className="text-neutral-300 transition-colors group-focus-within:text-cyan-400"
+                  >
+                    Subject
+                  </Label>
+                  <div className="relative">
+                    <Tag className="absolute top-2.5 left-3 h-4 w-4 text-neutral-500 transition-colors group-focus-within:text-cyan-400" />
+                    <Input
+                      id="subject"
+                      placeholder="Project Inquiry"
+                      {...register("subject")}
+                      className="border-white/10 bg-white/5 pl-9 text-neutral-200 transition-all duration-300 placeholder:text-neutral-500 hover:bg-white/10 focus-visible:border-cyan-500/50 focus-visible:ring-cyan-500/50"
+                    />
+                  </div>
+                  {errors.subject && (
+                    <p className="text-xs text-red-400">{errors.subject.message}</p>
+                  )}
                 </div>
 
                 <div className="group grid gap-2">
@@ -97,17 +147,35 @@ export default function ContactPage() {
                     <textarea
                       id="message"
                       placeholder="How can I help you?"
+                      {...register("message")}
                       className="ring-offset-background flex min-h-[100px] w-full resize-none rounded-md border border-white/10 bg-white/5 px-3 py-2 pl-9 text-sm text-neutral-200 transition-all duration-300 placeholder:text-neutral-500 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-orange-500/50 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </div>
+                  {errors.message && (
+                    <p className="text-xs text-red-400">{errors.message.message}</p>
+                  )}
+                </div>
+
+                <div className="flex items-center justify-end">
+                  <Button
+                    type="submit"
+                    disabled={isPending}
+                    className="w-fit cursor-pointer border-0 bg-linear-to-r from-purple-500 via-pink-500 to-orange-500 text-white shadow-lg shadow-purple-500/20 transition-all duration-300 hover:scale-[1.02] hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 hover:shadow-pink-500/30 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    {isPending ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message <ArrowRight className="ml-2 h-4 w-4" />
+                      </>
+                    )}
+                  </Button>
                 </div>
               </form>
             </CardContent>
-            <CardFooter className="flex items-center justify-end px-8">
-              <Button className="w-fit cursor-pointer border-0 bg-linear-to-r from-purple-500 via-pink-500 to-orange-500 text-white shadow-lg shadow-purple-500/20 transition-all duration-300 hover:scale-[1.02] hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 hover:shadow-pink-500/30">
-                Send Message <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </CardFooter>
           </div>
         </Card>
       </div>

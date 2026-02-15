@@ -42,7 +42,7 @@ export const ScrollToTop = () => {
         >
           <motion.button
             onClick={scrollToTop}
-            className="rounded-full border border-white/10 bg-linear-to-r from-purple-500 via-pink-500 to-orange-500 p-3 text-white shadow-lg shadow-purple-500/40 transition-all duration-300 hover:scale-110 hover:shadow-pink-500/60 focus:outline-none"
+            className="cursor-pointer rounded-full border border-white/10 bg-linear-to-r from-purple-500 via-pink-500 to-orange-500 p-3 text-white shadow-lg shadow-purple-500/40 transition-all duration-300 hover:scale-105 hover:shadow-pink-500/60 focus:outline-none"
             animate={{
               y: [0, -8, 0],
             }}

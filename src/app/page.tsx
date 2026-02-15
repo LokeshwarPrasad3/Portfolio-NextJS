@@ -13,6 +13,7 @@ import Lanyard from "@/components/ui/lanyard";
 import TrafficChart from "@/components/analytics/TrafficChart";
 import ClickSpark from "@/components/ClickSpark";
 import { SkillsSection } from "@/components/home/skills/SkillsSection";
+import { ProjectsSection } from "@/components/home/projects/ProjectsSection";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
           <HeroSection />
           <FunStatsSection />
           <SkillsSection />
+          <ProjectsSection />
           <ProofSection />
           <RealityCheckSection />
           <WorkSection />
