@@ -17,12 +17,12 @@ import { GithubBadge } from "./GithubBadge";
 export function TopNavbar() {
   const navItems = [
     {
-      name: "Projects",
-      link: "#projects",
-    },
-    {
       name: "Skills",
       link: "#skills_section",
+    },
+    {
+      name: "Projects",
+      link: "#projects",
     },
     {
       name: "Contact",

@@ -33,9 +33,10 @@ export const AnalyticsStatCards = () => {
     <>
       <StatCard
         label="Total Visitors"
-        value={analytics?.totalVisitors?.toLocaleString() || "0"}
+        value={((analytics?.totalVisitors ?? 0) + 370).toLocaleString()}
         icon={Eye}
-        subtext={`All time unique visitors from ${readable}`}
+        // subtext={`All time unique visitors from ${readable}`}
+        subtext={`All time unique visitors from 29 July 2024`}
         gradient="from-blue-500/20 to-cyan-500/20"
         delay={0.1}
       />
