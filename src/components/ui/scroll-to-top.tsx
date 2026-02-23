@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 export const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -40,20 +40,32 @@ export const ScrollToTop = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <motion.button
-            onClick={scrollToTop}
-            className="cursor-pointer rounded-full border border-white/10 bg-linear-to-r from-purple-500 via-pink-500 to-orange-500 p-3 text-white shadow-lg shadow-purple-500/40 transition-all duration-300 hover:scale-105 hover:shadow-pink-500/60 focus:outline-none"
-            animate={{
-              y: [0, -8, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <ArrowUp className="h-6 w-6" />
-          </motion.button>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <motion.button
+                  onClick={scrollToTop}
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-linear-to-r from-purple-500 via-pink-500 to-orange-500 text-white shadow-lg shadow-purple-500/40 transition-all duration-300 hover:scale-105 hover:shadow-pink-500/60 focus:outline-none 2xl:h-12 2xl:w-12"
+                  animate={{
+                    y: [0, -8, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <ArrowUp className="h-5 w-5 2xl:h-6 2xl:w-6" />
+                </motion.button>
+              </TooltipTrigger>
+              <TooltipContent
+                side="left"
+                className="border-neutral-800 bg-neutral-900 text-neutral-300"
+              >
+                <p>Back to top</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </motion.div>
       )}
     </AnimatePresence>
