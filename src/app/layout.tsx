@@ -38,11 +38,11 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <QueryProvider>
             <TooltipProvider>
-              <Backgrounds />
               <TopNavbar />
               <Toaster position="top-center" richColors />
+              {/* <Backgrounds />
               <ScrollToTop />
-              <BugButton />
+              <BugButton /> */}
               {children}
             </TooltipProvider>
           </QueryProvider>

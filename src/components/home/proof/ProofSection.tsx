@@ -7,21 +7,21 @@ import { cn } from "@/lib/utils";
 
 export const ProofSection = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-black/20 px-6 py-24 lg:px-12">
+    <section className="relative w-full overflow-hidden bg-black/20 px-6 py-12 lg:px-12 lg:py-12 2xl:py-24">
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 -mt-20 -mr-20 h-[400px] w-[400px] rounded-full bg-emerald-500/5 blur-[100px]" />
       <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-[400px] w-[400px] rounded-full bg-blue-500/5 blur-[100px]" />
 
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-4xl 2xl:max-w-7xl">
         {/* 1. Header */}
-        <div className="mb-16 flex flex-col items-center text-center">
+        <div className="mb-8 flex flex-col items-center text-center lg:mb-12 2xl:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-bree mb-4 text-4xl font-bold tracking-wide md:text-5xl">
+            <h2 className="font-bree mb-4 text-2xl font-bold tracking-wide sm:text-3xl 2xl:text-4xl">
               <span className="bg-linear-to-r from-emerald-400 via-green-500 to-teal-500 bg-clip-text text-transparent">
                 Proof of Skill
               </span>{" "}
@@ -29,7 +29,7 @@ export const ProofSection = () => {
                 (Not Just Claims)
               </span> */}
             </h2>
-            <p className="text-muted-foreground max-w-xl text-lg">
+            <p className="text-muted-foreground max-w-xl text-xs sm:text-xs 2xl:text-base">
               Anyone can say "I care about performance." This page proves it.
               <br className="hidden sm:block" />
               Here are the real metrics of the site you're using right now.
@@ -38,7 +38,7 @@ export const ProofSection = () => {
         </div>
 
         {/* 2. Metrics Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 2xl:grid-cols-4">
           <MetricCard
             label="Lighthouse Score"
             value="100"

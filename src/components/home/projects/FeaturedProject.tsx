@@ -51,13 +51,17 @@ export const FeaturedProject = ({ project, index }: { project: Project; index: n
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-1 flex-col p-5">
-        <div className="mb-3 flex items-start justify-between gap-4">
-          <h3 className="text-xl font-bold text-white md:text-2xl">{project.title}</h3>
-          <span className="text-4xl font-bold text-white/5">0{index + 1}</span>
+      <div className="flex flex-1 flex-col p-4 2xl:p-5">
+        <div className="mb-0 flex items-start justify-between gap-2 2xl:mb-3 2xl:gap-4">
+          <h3 className="text-base font-bold text-white sm:text-lg 2xl:text-2xl">
+            {project.title}
+          </h3>
+          <span className="text-2xl font-bold text-white/5 sm:text-3xl 2xl:text-4xl">
+            0{index + 1}
+          </span>
         </div>
 
-        <p className="mb-4 line-clamp-3 text-sm leading-relaxed text-white/70">
+        <p className="mb-3 line-clamp-3 text-xs leading-relaxed text-white/70 2xl:mb-4 2xl:text-sm">
           {project.description}
         </p>
 

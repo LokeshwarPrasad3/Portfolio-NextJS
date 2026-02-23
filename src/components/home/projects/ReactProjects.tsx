@@ -58,8 +58,10 @@ export const ReactProjects = ({ projects }: { projects: Project[] }) => {
 
           {/* Content */}
           <div className="flex flex-1 flex-col p-5">
-            <h3 className="mb-2 text-lg font-bold text-white">{project.title}</h3>
-            <p className="mb-4 line-clamp-3 flex-1 text-sm leading-relaxed text-white/60">
+            <h3 className="mb-2 text-base font-bold text-white sm:text-lg 2xl:text-xl">
+              {project.title}
+            </h3>
+            <p className="mb-4 line-clamp-3 flex-1 text-xs leading-relaxed text-white/60 sm:text-sm">
               {project.description}
             </p>
 
