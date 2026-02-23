@@ -145,7 +145,7 @@ const TrafficChart = () => {
         <p className="text-sm text-slate-400">Last 6 months</p>
       </div>
 
-      <div className="h-[350px] w-full">
+      <div className="h-[250px] w-full sm:h-[350px]">
         {isError ? (
           <div className="flex h-full items-center justify-center text-sm text-slate-400">
             Failed to load traffic data

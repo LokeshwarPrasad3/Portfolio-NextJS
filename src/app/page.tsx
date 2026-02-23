@@ -1,5 +1,6 @@
 import { TopNavbar } from "@/components/layouts/TopNavbar";
 import { HeroSection } from "@/components/home/hero/HeroSection";
+import { StatsSticker } from "@/components/home/hero/StatsSticker";
 import { FunStatsSection } from "@/components/home/stats/FunStatsSection";
 import { ProofSection } from "@/components/home/proof/ProofSection";
 import { RealityCheckSection } from "@/components/home/reality-check/RealityCheckSection";
@@ -26,6 +27,7 @@ export default function Home() {
       <ClickSpark sparkColor="#fff" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
         <main className="relative z-10 w-full flex-1">
           <HeroSection />
+          <StatsSticker />
           <FunStatsSection />
           <SkillsSection />
           <ProjectsSection />

@@ -52,7 +52,7 @@ export const StatCard = ({
       </div>
 
       <div className="space-y-1">
-        <h2 className="font-bree bg-linear-to-br from-white to-white/70 bg-clip-text text-4xl font-bold text-transparent">
+        <h2 className="font-bree bg-linear-to-br from-white to-white/70 bg-clip-text text-3xl font-bold text-transparent lg:text-3xl 2xl:text-4xl">
           {value}
         </h2>
         {subtext && <p className="text-muted-foreground/80 text-xs">{subtext}</p>}

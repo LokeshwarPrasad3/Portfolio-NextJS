@@ -9,6 +9,7 @@ import dynamic from "next/dynamic";
 import { ImageTransition } from "./ImageTransition";
 import { ToolButton } from "./ToolButton";
 import { FeaturedBadge } from "./FeaturedBadge";
+import { ShineBorder } from "@/components/ui/shine-border";
 import DecorativeImage1 from "@/assets/images/transition/decorative-bg-1.jpeg";
 import DecorativeImage2 from "@/assets/images/transition/decorative-bg-2.jpeg";
 
@@ -69,7 +70,7 @@ export const HeroSection = () => {
   return (
     <section
       onMouseMove={handleMouseMove}
-      className="relative flex min-h-[90vh] w-full items-center justify-center overflow-hidden px-6 pt-28 pb-20 md:pt-32 lg:px-12 lg:pt-0 lg:pb-0"
+      className="scale_layout relative flex min-h-[90vh] w-full items-center justify-center overflow-hidden px-6 pt-16 pb-20 md:pt-20 lg:px-12 lg:pt-14 lg:pb-0 xl:pt-0"
     >
       {/* --- Subtle Background Noise/Gradient --- */}
       {/* <div className="absolute inset-0 -z-50 pointer-events-none opacity-20">
@@ -77,13 +78,15 @@ export const HeroSection = () => {
                 <div className="absolute bottom-[-10%] left-[-5%] w-[800px] h-[800px] bg-pink-500/5 rounded-full blur-[140px]" />
             </div> */}
 
-      <div className="mx-auto flex h-full w-full max-w-7xl flex-col-reverse items-center justify-center gap-12 lg:flex-row lg:justify-between">
-        <div className="relative z-10 flex w-full flex-col items-center justify-center gap-6 text-center lg:w-fit lg:items-start lg:text-left">
+      <div className="mx-auto flex h-full w-full max-w-7xl flex-col-reverse items-center justify-center lg:flex-row lg:justify-between lg:gap-12">
+        <div className="relative z-10 flex w-full flex-col items-center justify-center gap-6 text-center lg:w-[55%] lg:items-start lg:pr-10 lg:text-left">
           <CometPath />
 
           <div className="font-bree relative flex flex-col gap-2">
-            <span className="text-foreground block text-2xl font-bold sm:text-3xl">Hey,</span>
-            <h1 className="text-foreground text-4xl leading-tight font-medium tracking-wide md:text-5xl">
+            <span className="text-foreground block text-xl font-bold sm:text-2xl lg:text-3xl">
+              Hey,
+            </span>
+            <h1 className="text-foreground text-3xl leading-tight font-medium tracking-wide sm:text-4xl lg:text-5xl">
               I am{" "}
               <span
                 ref={typedEl}
@@ -97,7 +100,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-muted-foreground max-w-lg text-lg leading-relaxed"
+            className="text-muted-foreground max-w-2xl text-base leading-relaxed sm:text-lg"
           >
             I’m Lokeshwar Prasad Dewangan, a full-stack developer building modern, scalable web
             experiences with a strong focus on UI, performance, and thoughtful interactions.
@@ -121,61 +124,181 @@ export const HeroSection = () => {
           </motion.div>
         </div>
 
-        <div className="perspective-1000 relative flex h-[450px] w-full max-w-[300px] items-center justify-center sm:h-[550px] sm:max-w-xl lg:left-20 lg:h-[600px] lg:max-w-3xl 2xl:left-15">
-          <motion.div
-            animate={{ y: [-15, 15, -15] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            style={{ x: moveBack }}
-            className="pointer-events-none absolute -top-[4%] -right-[10%] z-0 h-[220px] w-[200px] overflow-hidden rounded-lg border border-white/5 opacity-20 blur-[2px] select-none md:top-[0%] md:right-[10%]"
-          >
-            <Image
-              src={DecorativeImage2}
-              alt="Decorative background"
-              fill
-              sizes="200px"
-              placeholder="blur"
-              role="presentation"
-              priority
-              className="object-cover grayscale"
-            />
-          </motion.div>
+        <div className="perspective-1000 relative flex h-[400px] w-full max-w-[300px] items-center justify-center sm:h-[550px] sm:w-[400px] sm:max-w-xl lg:left-0 lg:h-[600px] lg:w-[45%] lg:max-w-none lg:justify-center">
+          <div className="relative flex items-center justify-center">
+            {/* SVG Background Animations */}
+            <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
+              <motion.svg
+                animate={{ rotate: 360 }}
+                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                className="text-primary absolute h-[180%] max-h-[700px] w-[180%] max-w-[700px] opacity-30"
+                viewBox="0 0 100 100"
+              >
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="48"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.2"
+                  strokeDasharray="1 3"
+                />
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="40"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.5"
+                  strokeDasharray="4 4"
+                />
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="30"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.2"
+                  strokeDasharray="2 6"
+                />
+              </motion.svg>
 
-          <motion.div
-            animate={{ y: [15, -15, 15] }} // Opposite drift
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            style={{ x: moveBack }}
-            className="pointer-events-none absolute -bottom-[6%] -left-[10%] z-0 h-[240px] w-[180px] overflow-hidden rounded-lg border border-white/5 opacity-30 blur-[2px] select-none md:bottom-[54%] md:left-[5%] lg:left-[12%]"
-          >
-            <Image
-              src={DecorativeImage1}
-              alt="Decorative background"
-              fill
-              sizes="180px"
-              placeholder="blur"
-              role="presentation"
-              className="object-cover mix-blend-multiply grayscale dark:mix-blend-screen"
-              priority
-            />
-          </motion.div>
+              <motion.svg
+                animate={{ rotate: -360 }}
+                transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+                className="absolute h-[200%] max-h-[800px] w-[200%] max-w-[800px] text-pink-500 opacity-20"
+                viewBox="0 0 100 100"
+              >
+                <ellipse
+                  cx="50"
+                  cy="50"
+                  rx="45"
+                  ry="10"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.3"
+                  transform="rotate(30 50 50)"
+                />
+                <ellipse
+                  cx="50"
+                  cy="50"
+                  rx="45"
+                  ry="10"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.3"
+                  transform="rotate(-30 50 50)"
+                />
+                <ellipse
+                  cx="50"
+                  cy="50"
+                  rx="45"
+                  ry="10"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.3"
+                  transform="rotate(90 50 50)"
+                />
+              </motion.svg>
 
-          <motion.div
-            style={{ rotateX: tiltImg, rotateY: tiltImg }} // Micro tilt
-            className="group relative z-20 aspect-3/4 w-[300px] overflow-hidden rounded-2xl border border-white/10 bg-linear-to-r from-pink-500/30 to-purple-600/30 shadow-2xl md:w-[350px]"
-          >
-            <ImageTransition />
-          </motion.div>
+              <motion.div
+                animate={{ y: [-20, 20, -20], rotate: [0, 90, 0] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-12 -right-8 text-yellow-500/50 md:-right-16"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M12 2v20M2 12h20" />
+                </svg>
+              </motion.div>
 
-          <motion.div
-            style={{ x: moveMid, y: moveMid }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="absolute -bottom-6 left-[8%] z-30 hidden w-[80%] transition-all duration-300 hover:z-40 md:left-[15%] md:block md:w-auto lg:left-[5%]"
-          >
-            <div className="scale-90 transform overflow-hidden rounded-xl shadow-2xl shadow-black/50 sm:scale-100">
-              <CodeFragment />
+              <motion.div
+                animate={{ y: [20, -20, 20], rotate: [0, -90, 0] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-44 -left-12 text-cyan-500/50 md:-left-16"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  <path d="M2 12h20" />
+                </svg>
+              </motion.div>
             </div>
-          </motion.div>
+
+            {/* Stacked Image 1 (Left) */}
+            <motion.div
+              animate={{ y: [-10, 10, -10], rotate: [-8, -4, -8] }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+              style={{ x: moveBack }}
+              className="pointer-events-none absolute -top-3 -left-10 z-10 hidden aspect-3/4 w-[200px] overflow-hidden rounded-2xl border border-white/10 shadow-2xl md:block xl:-left-20 xl:w-[160px]"
+            >
+              <Image
+                src={DecorativeImage1}
+                alt="Decorative background"
+                fill
+                sizes="220px"
+                placeholder="blur"
+                role="presentation"
+                priority
+                className="object-cover opacity-80 grayscale transition-opacity duration-500 hover:grayscale-0"
+              />
+              <div className="from-background/90 via-background/40 absolute inset-0 bg-linear-to-tr to-transparent" />
+            </motion.div>
+
+            {/* Stacked Image 2 (Right) */}
+            <motion.div
+              animate={{ y: [10, -10, 10], rotate: [8, 4, 8] }}
+              transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+              style={{ x: moveBack }}
+              className="pointer-events-none absolute -right-10 -bottom-8 z-10 hidden aspect-3/4 w-[220px] overflow-hidden rounded-2xl border border-white/10 shadow-2xl md:block xl:-right-20 xl:w-[160px]"
+            >
+              <Image
+                src={DecorativeImage2}
+                alt="Decorative background"
+                fill
+                sizes="240px"
+                placeholder="blur"
+                role="presentation"
+                className="object-cover opacity-80 mix-blend-multiply grayscale dark:mix-blend-screen"
+                priority
+              />
+              <div className="from-background/90 via-background/40 absolute inset-0 bg-linear-to-bl to-transparent" />
+            </motion.div>
+
+            {/* Main Center Image */}
+            <motion.div
+              style={{ rotateX: tiltImg, rotateY: tiltImg }}
+              className="group relative z-20 aspect-3/4 w-[200px] overflow-hidden rounded-2xl shadow-[0_0_40px_rgba(168,85,247,0.3)] sm:w-[240px] md:w-[260px] lg:w-[280px] xl:w-[300px] 2xl:w-[320px]"
+            >
+              {/* Shine Border specific implementation */}
+              <ShineBorder
+                className="absolute inset-0 z-0 p-px"
+                shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+                duration={10}
+                borderWidth={1.5}
+              />
+
+              {/* Inner content wrapper */}
+              <div className="bg-background absolute inset-[2px] overflow-hidden rounded-[14px]">
+                <ImageTransition />
+              </div>
+
+              <div className="pointer-events-none absolute inset-[2px] rounded-[14px] border border-white/5 opacity-30 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]" />
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -6,22 +6,22 @@ import { AnalyticsStatCards } from "@/components/analytics/StatCards";
 
 export const FunStatsSection = () => {
   return (
-    <section className="relative z-10 w-full overflow-hidden px-6 py-24 lg:px-12">
-      <div className="container mx-auto max-w-7xl">
-        <div className="mb-16 flex flex-col items-center text-center">
+    <section className="relative z-10 w-full overflow-hidden px-6 py-12 lg:px-12 lg:py-12 2xl:py-20">
+      <div className="container mx-auto max-w-4xl 2xl:max-w-7xl">
+        <div className="mb-8 flex flex-col items-center text-center lg:mb-12 2xl:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-bree mb-4 text-4xl font-bold tracking-wide md:text-5xl">
+            <h2 className="font-bree mb-4 text-2xl font-bold tracking-wide sm:text-3xl 2xl:text-4xl">
               <span className="bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">
                 Website Traffic Overview
               </span>
             </h2>
 
-            <p className="text-muted-foreground max-w-xl text-lg">
+            <p className="text-muted-foreground mx-auto max-w-xl text-xs sm:text-xs 2xl:text-base">
               A snapshot of real user traffic, engagement metrics, and month-over-month growth
               across the platform.
             </p>
@@ -33,7 +33,7 @@ export const FunStatsSection = () => {
             <TrafficChart />
           </div>
 
-          <div className="order-1 col-span-1 grid grid-cols-1 gap-6 sm:grid-cols-3 lg:order-2 lg:col-span-3 lg:grid-cols-1">
+          <div className="order-1 col-span-1 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:order-2 lg:col-span-3 lg:grid-cols-1 lg:gap-6">
             <AnalyticsStatCards />
 
             {/* <InteractiveCard /> */}

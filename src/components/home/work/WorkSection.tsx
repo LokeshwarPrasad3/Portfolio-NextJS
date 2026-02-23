@@ -52,22 +52,22 @@ export const WorkSection = () => {
   const [activeTrait, setActiveTrait] = useState(traits[0]);
 
   return (
-    <section className="relative z-10 w-full overflow-hidden bg-black/5 px-6 py-24 lg:px-12">
-      <div className="container mx-auto max-w-5xl">
+    <section className="relative z-10 w-full overflow-hidden bg-black/5 px-6 py-12 lg:px-12 lg:py-12 2xl:py-24">
+      <div className="container mx-auto max-w-4xl 2xl:max-w-7xl">
         {/* Header */}
-        <div className="mb-16 text-center">
+        <div className="mb-8 text-center lg:mb-12 2xl:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-bree mb-4 text-3xl font-bold tracking-wide md:text-5xl">
+            <h2 className="font-bree mb-4 text-xl font-bold tracking-wide sm:text-2xl lg:text-3xl 2xl:text-4xl">
               <span className="bg-linear-to-r from-indigo-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 How I Actually Work
               </span>
             </h2>
-            <p className="text-muted-foreground/80 font-sans text-xl font-light italic">
+            <p className="text-muted-foreground/80 font-sans text-sm font-light italic sm:text-base 2xl:text-lg">
               (On Real Projects)
             </p>
           </motion.div>
@@ -82,7 +82,7 @@ export const WorkSection = () => {
                 onMouseEnter={() => setActiveTrait(trait)}
                 onClick={() => setActiveTrait(trait)} // Mobile tap
                 className={cn(
-                  "group relative flex items-center gap-4 rounded-xl border px-6 py-4 text-left transition-all duration-300",
+                  "group relative flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all duration-300 2xl:gap-4 2xl:px-6 2xl:py-4",
                   activeTrait.id === trait.id
                     ? "border-white/10 bg-white/5 shadow-lg"
                     : "border-transparent hover:border-white/5 hover:bg-white/5"
@@ -96,11 +96,11 @@ export const WorkSection = () => {
                       : "bg-neutral-800"
                   )}
                 >
-                  <trait.icon size={20} />
+                  <trait.icon className="h-4 w-4 sm:h-5 sm:w-5 2xl:h-6 2xl:w-6" />
                 </div>
                 <span
                   className={cn(
-                    "text-lg font-medium transition-colors",
+                    "text-xs font-medium transition-colors sm:text-sm 2xl:text-lg",
                     activeTrait.id === trait.id
                       ? "text-white"
                       : "text-muted-foreground group-hover:text-white"
@@ -149,18 +149,18 @@ export const WorkSection = () => {
                 >
                   <div
                     className={cn(
-                      "w-fit rounded-2xl bg-linear-to-br p-4 shadow-2xl",
+                      "w-fit rounded-2xl bg-linear-to-br p-3 shadow-2xl 2xl:p-4",
                       activeTrait.gradient
                     )}
                   >
-                    <activeTrait.icon size={48} className="text-white" />
+                    <activeTrait.icon className="h-8 w-8 text-white sm:h-10 sm:w-10 2xl:h-12 2xl:w-12" />
                   </div>
 
                   <div>
-                    <h3 className="font-bree mb-4 text-3xl font-bold text-white">
+                    <h3 className="font-bree mb-2 text-lg font-bold text-white sm:text-xl 2xl:mb-4 2xl:text-3xl">
                       {activeTrait.title}
                     </h3>
-                    <p className="text-muted-foreground text-xl leading-relaxed">
+                    <p className="text-muted-foreground text-xs leading-relaxed sm:text-sm 2xl:text-lg">
                       {activeTrait.description}
                     </p>
                   </div>

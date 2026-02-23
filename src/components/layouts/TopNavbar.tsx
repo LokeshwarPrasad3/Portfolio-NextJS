@@ -33,7 +33,7 @@ export function TopNavbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <Navbar className="fixed inset-x-0 top-4 z-50">
+    <Navbar className="scale_layout fixed inset-x-0 top-4 z-50">
       {/* Desktop Navigation */}
       <NavBody>
         <NavbarLogo url={LokeshwarImage} />

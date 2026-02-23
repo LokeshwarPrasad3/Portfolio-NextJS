@@ -106,7 +106,7 @@ export const QuizCard = () => {
             {hasAnswered && isCorrect ? <PartyPopper size={22} /> : <HelpCircle size={22} />}
           </div>
           <div className="flex flex-col">
-            <h3 className="text-xl font-bold text-white">JS Reality Check</h3>
+            <h3 className="text-lg font-bold text-white sm:text-xl">JS Reality Check</h3>
             <span className="text-xs text-neutral-400">Do you know your coercion?</span>
           </div>
         </div>
@@ -131,7 +131,9 @@ export const QuizCard = () => {
           </div>
         </div>
 
-        <p className="text-base font-medium text-neutral-400">What does the console log?</p>
+        <p className="text-sm font-medium text-neutral-400 sm:text-base">
+          What does the console log?
+        </p>
 
         <div className="grid grid-cols-2 gap-3">
           {options.map((option) => (

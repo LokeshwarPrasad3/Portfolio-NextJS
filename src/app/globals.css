@@ -169,6 +169,30 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-linear-to-b from-indigo-500 to-purple-500;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-linear-to-b from-indigo-400 to-purple-400;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #6366f1 transparent; /* Firefox fallback using indigo-500 hex */
+  }
 }
 
 @utility bg-grid-white {
@@ -181,11 +205,8 @@
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='black'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
+@layer components {
+  .scale_layout {
+    @apply scale-100 lg:scale-75 2xl:scale-100;
   }
 }
