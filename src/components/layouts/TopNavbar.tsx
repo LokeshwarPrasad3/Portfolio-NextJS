@@ -12,17 +12,26 @@ import {
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
 import LokeshwarImage from "@/assets/images/transition/lokeshwar.jpg";
+import { cn } from "@/lib/utils";
 import { GithubBadge } from "./GithubBadge";
 
+import { usePathname } from "next/navigation";
+
 export function TopNavbar() {
+  const pathname = usePathname();
+
   const navItems = [
     {
+      name: "Home",
+      link: "/",
+    },
+    {
       name: "Skills",
-      link: "#skills_section",
+      link: pathname === "/contact" || pathname === "/projects" ? "/skills" : "/#skills_section",
     },
     {
       name: "Projects",
-      link: "#projects",
+      link: pathname === "/contact" || pathname === "/skills" ? "/projects" : "/#projects",
     },
     {
       name: "Contact",
@@ -54,23 +63,33 @@ export function TopNavbar() {
         </MobileNavHeader>
 
         <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
-          {navItems.map((item, idx) => (
-            <a
-              key={`mobile-link-${idx}`}
-              href={item.link}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="relative text-neutral-600 dark:text-neutral-300"
-            >
-              <span className="block">{item.name}</span>
-            </a>
-          ))}
+          {navItems.map((item, idx) => {
+            const isActive =
+              pathname === item.link || (pathname === "/" && item.link.startsWith("/#"));
+            return (
+              <a
+                key={`mobile-link-${idx}`}
+                href={item.link}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={cn(
+                  "relative text-neutral-600 transition-colors dark:text-neutral-300",
+                  isActive && "font-semibold text-black dark:text-white"
+                )}
+              >
+                <span className="block">{item.name}</span>
+              </a>
+            );
+          })}
           <div className="flex w-full flex-col gap-4">
             <NavbarButton
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                window.location.href = "mailto:lokeshwar.prasad.cse@gmail.com";
+                setIsMobileMenuOpen(false);
+              }}
               variant="primary"
               className="w-full"
             >
-              Book a call
+              Let&apos;s Connect 🤝
             </NavbarButton>
           </div>
         </MobileNavMenu>

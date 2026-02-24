@@ -15,6 +15,8 @@ import TrafficChart from "@/components/analytics/TrafficChart";
 import ClickSpark from "@/components/ClickSpark";
 import { SkillsSection } from "@/components/home/skills/SkillsSection";
 import { ProjectsSection } from "@/components/home/projects/ProjectsSection";
+import { ExperienceSection } from "@/components/home/experience/ExperienceSection";
+import { AchievementsSection } from "@/components/home/achievements/AchievementsSection";
 
 export default function Home() {
   return (
@@ -30,11 +32,13 @@ export default function Home() {
           <StatsSticker />
           <FunStatsSection />
           <SkillsSection />
+          <ExperienceSection />
           <ProjectsSection />
+          <AchievementsSection />
           <ProofSection />
-          <RealityCheckSection />
           <WorkSection />
-          {/* <OneLastThing /> */}
+          {/* <RealityCheckSection /> */}
+          <OneLastThing />
           <Footer />
         </main>
       </ClickSpark>

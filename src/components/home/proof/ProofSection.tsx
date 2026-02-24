@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export const ProofSection = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-black/20 px-6 py-12 lg:px-12 lg:py-12 2xl:py-24">
+    <section className="relative w-full overflow-hidden bg-black/20 px-6 py-12 lg:px-12 lg:py-12">
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 -mt-20 -mr-20 h-[400px] w-[400px] rounded-full bg-emerald-500/5 blur-[100px]" />
       <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-[400px] w-[400px] rounded-full bg-blue-500/5 blur-[100px]" />

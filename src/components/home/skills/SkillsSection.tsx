@@ -103,9 +103,9 @@ export function SkillsSection() {
   return (
     <section
       id="skills_section"
-      className="relative w-full overflow-hidden bg-black/5 py-12 lg:py-12 2xl:py-24"
+      className="relative w-full overflow-hidden bg-black/5 py-12 lg:py-12"
     >
-      <div className="relative z-10 container mx-auto max-w-4xl px-6 md:px-12 2xl:max-w-7xl">
+      <div className="relative z-10 container mx-auto max-w-full px-6 md:px-12">
         {/* Header */}
         <div className="mb-8 text-center lg:mb-12 2xl:mb-16">
           <motion.div

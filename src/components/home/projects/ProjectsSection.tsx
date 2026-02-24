@@ -19,7 +19,7 @@ export const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="relative z-10 w-full overflow-hidden bg-black/5 py-12 md:py-16 2xl:py-24"
+      className="relative z-10 w-full overflow-hidden bg-black/5 py-12 md:py-12"
     >
       <div className="container mx-auto max-w-4xl px-4 md:px-6 2xl:max-w-7xl">
         {/* SECTION HEADER */}

@@ -52,7 +52,7 @@ export const WorkSection = () => {
   const [activeTrait, setActiveTrait] = useState(traits[0]);
 
   return (
-    <section className="relative z-10 w-full overflow-hidden bg-black/5 px-6 py-12 lg:px-12 lg:py-12 2xl:py-24">
+    <section className="relative z-10 w-full overflow-hidden bg-black/5 px-6 py-12 lg:px-12 lg:py-12">
       <div className="container mx-auto max-w-4xl 2xl:max-w-7xl">
         {/* Header */}
         <div className="mb-8 text-center lg:mb-12 2xl:mb-16">

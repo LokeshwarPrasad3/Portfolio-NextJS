@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export const RealityCheckSection = () => {
   return (
-    <section className="relative z-10 w-full overflow-hidden px-6 py-12 lg:px-12 lg:py-12 2xl:py-24">
+    <section className="relative z-10 w-full overflow-hidden px-6 py-12 lg:px-12 lg:py-12">
       <div className="container mx-auto max-w-4xl 2xl:max-w-7xl">
         {/* 1. Header */}
         <div className="mb-8 flex flex-col items-center text-center lg:mb-12 2xl:mb-16">
