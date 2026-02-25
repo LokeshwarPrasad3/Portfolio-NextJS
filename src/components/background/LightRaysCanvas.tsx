@@ -1,6 +1,5 @@
 import Galaxy from "../Galaxy";
 import LightRays from "../LightRays";
-import Particles from "../Particles";
 
 export function LightRaysCanvas() {
   return (

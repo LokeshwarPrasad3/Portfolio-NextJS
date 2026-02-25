@@ -35,7 +35,7 @@ export const FeaturedProject = ({ project, index }: { project: Project; index: n
           src={project.image}
           alt={project.title}
           fill
-          sizes="(max-width: 768px) 100vw, 50vw"
+          sizes="(max-width: 768px) 400px, (max-width: 1200px) 50vw, 500px"
           quality={85}
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />

@@ -91,6 +91,7 @@ export const Footer = () => {
                   <Link
                     key={item}
                     href={`/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`}
+                    aria-label={`Navigate to ${item} page`}
                     className="text-muted-foreground/80 w-fit text-xs transition-colors hover:text-white 2xl:text-sm"
                   >
                     {item}

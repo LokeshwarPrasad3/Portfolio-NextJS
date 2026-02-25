@@ -11,7 +11,7 @@ import {
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
-import LokeshwarImage from "@/assets/images/transition/lokeshwar.jpg";
+import LokeshwarImage from "@/assets/images/transition/navbar-logo.jpeg";
 import { cn } from "@/lib/utils";
 import { GithubBadge } from "./GithubBadge";
 

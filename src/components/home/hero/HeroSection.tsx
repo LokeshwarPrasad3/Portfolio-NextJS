@@ -128,10 +128,8 @@ export const HeroSection = () => {
           <div className="relative flex items-center justify-center">
             {/* SVG Background Animations */}
             <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
-              <motion.svg
-                animate={{ rotate: 360 }}
-                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                className="text-primary absolute h-[180%] max-h-[700px] w-[180%] max-w-[700px] opacity-30"
+              <svg
+                className="text-primary absolute h-[180%] max-h-[700px] w-[180%] max-w-[700px] transform-gpu animate-[spin_40s_linear_infinite] opacity-30 will-change-transform"
                 viewBox="0 0 100 100"
               >
                 <circle
@@ -161,12 +159,10 @@ export const HeroSection = () => {
                   strokeWidth="0.2"
                   strokeDasharray="2 6"
                 />
-              </motion.svg>
+              </svg>
 
-              <motion.svg
-                animate={{ rotate: -360 }}
-                transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-                className="absolute h-[200%] max-h-[800px] w-[200%] max-w-[800px] text-pink-500 opacity-20"
+              <svg
+                className="absolute h-[200%] max-h-[800px] w-[200%] max-w-[800px] transform-gpu animate-[spin_50s_linear_infinite_reverse] text-pink-500 opacity-20 will-change-transform"
                 viewBox="0 0 100 100"
               >
                 <ellipse
@@ -199,7 +195,7 @@ export const HeroSection = () => {
                   strokeWidth="0.3"
                   transform="rotate(90 50 50)"
                 />
-              </motion.svg>
+              </svg>
 
               <motion.div
                 animate={{ y: [-20, 20, -20], rotate: [0, 90, 0] }}
@@ -249,10 +245,10 @@ export const HeroSection = () => {
                 src={DecorativeImage1}
                 alt="Decorative background"
                 fill
-                sizes="220px"
+                sizes="(max-width: 768px) 160px, 250px"
                 placeholder="blur"
-                role="presentation"
                 priority
+                fetchPriority="high"
                 className="object-cover opacity-80 grayscale transition-opacity duration-500 hover:grayscale-0"
               />
               <div className="from-background/90 via-background/40 absolute inset-0 bg-linear-to-tr to-transparent" />
@@ -269,11 +265,11 @@ export const HeroSection = () => {
                 src={DecorativeImage2}
                 alt="Decorative background"
                 fill
-                sizes="240px"
+                sizes="(max-width: 768px) 160px, 260px"
                 placeholder="blur"
-                role="presentation"
                 className="object-cover opacity-80 mix-blend-multiply grayscale dark:mix-blend-screen"
                 priority
+                fetchPriority="high"
               />
               <div className="from-background/90 via-background/40 absolute inset-0 bg-linear-to-bl to-transparent" />
             </motion.div>

@@ -216,7 +216,7 @@ export const NavbarLogo = ({ url }: Props) => {
         <Image
           className="rounded-full object-cover"
           src={url}
-          alt="Lokeshwar"
+          alt=""
           fill
           sizes="32px"
           quality={75}

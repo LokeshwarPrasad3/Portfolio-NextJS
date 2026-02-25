@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -189,9 +188,19 @@
     @apply bg-linear-to-b from-indigo-400 to-purple-400;
   }
 
-  * {
+  html,
+  body {
     scrollbar-width: thin;
     scrollbar-color: #6366f1 transparent; /* Firefox fallback using indigo-500 hex */
+  }
+
+  /* Prevent Chrome from flagging SVG and common absolute UI components as uncomposited due to inherited scrollbar overrides */
+  svg,
+  .absolute,
+  .relative,
+  .apexcharts-inner,
+  .group {
+    scrollbar-color: auto !important;
   }
 }
 

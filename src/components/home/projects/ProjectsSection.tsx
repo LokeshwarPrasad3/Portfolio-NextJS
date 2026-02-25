@@ -8,7 +8,12 @@ import {
 } from "./project-data";
 import { FeaturedProject } from "./FeaturedProject";
 import { ReactProjects } from "./ReactProjects";
-import { HorizontalScrollSection } from "./HorizontalScrollSection";
+import dynamic from "next/dynamic";
+
+const HorizontalScrollSection = dynamic(
+  () => import("./HorizontalScrollSection").then((mod) => mod.HorizontalScrollSection),
+  { ssr: false } // Disable SSR to prevent Swiper's CSS from blocking initial render
+);
 
 export const ProjectsSection = () => {
   // Correctly typed data

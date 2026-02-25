@@ -11,12 +11,13 @@ export const BugButton = () => {
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
-            <Link href="/contact" passHref>
+            <Link href="/contact" passHref aria-label="Report a bug">
               <Button
+                aria-label="Report a bug"
                 size="icon"
-                className="h-10 w-10 rounded-full border border-red-500/30 bg-linear-to-r from-red-500/20 to-orange-500/20 text-red-500 shadow-lg shadow-red-500/10 transition-all duration-300 hover:scale-110 hover:bg-linear-to-r hover:from-red-500 hover:to-orange-500 hover:text-white hover:shadow-red-500/40 2xl:h-12 2xl:w-12"
+                className="h-10 w-10 transform-gpu rounded-full border border-red-500/30 bg-linear-to-r from-red-500/20 to-orange-500/20 text-red-500 shadow-lg shadow-red-500/10 transition-all duration-300 hover:scale-110 hover:bg-linear-to-r hover:from-red-500 hover:to-orange-500 hover:text-white hover:shadow-red-500/40 2xl:h-12 2xl:w-12"
               >
-                <Bug className="h-5 w-5 animate-pulse 2xl:h-6 2xl:w-6" />
+                <Bug className="h-5 w-5 transform-gpu animate-pulse 2xl:h-6 2xl:w-6" />
               </Button>
             </Link>
           </TooltipTrigger>

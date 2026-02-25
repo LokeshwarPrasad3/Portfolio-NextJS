@@ -1,8 +1,17 @@
 "use client";
 
 import { motion } from "motion/react";
-import TrafficChart from "@/components/analytics/TrafficChart";
+import dynamic from "next/dynamic";
 import { AnalyticsStatCards } from "@/components/analytics/StatCards";
+
+const TrafficChart = dynamic(() => import("@/components/analytics/TrafficChart"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-full w-full animate-pulse items-center justify-center rounded-xl border border-slate-800 bg-slate-900/50 p-6 text-slate-400 shadow-xl backdrop-blur-sm">
+      Loading Chart Analytics...
+    </div>
+  ),
+});
 
 export const FunStatsSection = () => {
   return (

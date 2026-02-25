@@ -47,7 +47,8 @@ export const ImageTransition = () => {
             fill
             className="object-cover"
             sizes="(max-width: 768px) 300px, 350px"
-            priority
+            priority={index === 0}
+            fetchPriority={index === 0 ? "high" : "auto"}
           />
         </motion.div>
       </AnimatePresence>

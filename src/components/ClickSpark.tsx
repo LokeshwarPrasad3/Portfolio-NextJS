@@ -92,10 +92,18 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
     let animationId: number;
 
     const draw = (timestamp: number) => {
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (sparksRef.current.length === 0) {
+        // No sparks, do not request another frame
+        startTimeRef.current = null;
+        return;
+      }
+
       if (!startTimeRef.current) {
         startTimeRef.current = timestamp;
       }
-      ctx?.clearRect(0, 0, canvas.width, canvas.height);
 
       sparksRef.current = sparksRef.current.filter((spark: Spark) => {
         const elapsed = timestamp - spark.startTime;
@@ -127,12 +135,36 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
       animationId = requestAnimationFrame(draw);
     };
 
-    animationId = requestAnimationFrame(draw);
+    // We no longer start the animation immediately. It will be triggered by handleClick.
+    // However, we expose a way to start it if sparks somehow get added externally
+    const triggerAnimation = () => {
+      if (sparksRef.current.length > 0) {
+        animationId = requestAnimationFrame(draw);
+      }
+    };
+
+    // Attach a listener to the canvas to start animation when clicks happen
+    // This is a bit of a hack since handleClick is on the wrapper, but we need
+    // to kick off the draw loop from the click handler
+    canvas.dataset.animating = "false";
+    const startLoop = () => {
+      if (canvas.dataset.animating === "false") {
+        canvas.dataset.animating = "true";
+        animationId = requestAnimationFrame((t) => {
+          canvas.dataset.animating = "false"; // Reset for next explicit trigger if needed, though draw will loop
+          draw(t);
+        });
+      }
+    };
+
+    // Listen for custom event that we'll fire in handleClick
+    canvas.addEventListener("startSparks", startLoop);
 
     return () => {
       cancelAnimationFrame(animationId);
+      canvas.removeEventListener("startSparks", startLoop);
     };
-  }, [sparkColor, sparkSize, sparkRadius, sparkCount, duration, easeFunc, extraScale]);
+  }, [sparkColor, sparkSize, sparkRadius, duration, easeFunc, extraScale]);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>): void => {
     const canvas = canvasRef.current;
@@ -150,6 +182,10 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
     }));
 
     sparksRef.current.push(...newSparks);
+
+    // Kickstart the animation loop using a custom event
+    const event = new CustomEvent("startSparks");
+    canvas.dispatchEvent(event);
   };
 
   return (
