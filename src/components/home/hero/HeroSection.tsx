@@ -13,9 +13,6 @@ import { ShineBorder } from "@/components/ui/shine-border";
 import DecorativeImage1 from "@/assets/images/transition/decorative-bg-1.jpeg";
 import DecorativeImage2 from "@/assets/images/transition/decorative-bg-2.jpeg";
 
-const CodeFragment = dynamic(() => import("./CodeFragment").then((mod) => mod.CodeFragment), {
-  ssr: false,
-});
 const CometPath = dynamic(() => import("./CometPath"), { ssr: false });
 
 export const HeroSection = () => {
@@ -26,7 +23,6 @@ export const HeroSection = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const smoothX = useSpring(mouseX, { stiffness: 30, damping: 50 });
-  const smoothY = useSpring(mouseY, { stiffness: 30, damping: 50 });
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const { clientX, clientY } = e;
@@ -38,7 +34,7 @@ export const HeroSection = () => {
 
   // Parallax Transforms
   const moveBack = useTransform(smoothX, (x) => x * 0.015);
-  const moveMid = useTransform(smoothX, (x) => x * 0.025);
+
   const tiltImg = useTransform(smoothX, [-800, 800], [-2, 2]);
 
   useEffect(() => {

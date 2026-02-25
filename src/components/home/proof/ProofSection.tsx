@@ -3,7 +3,6 @@
 import { motion } from "motion/react";
 import { Gauge, Smartphone, Zap, LayoutTemplate } from "lucide-react";
 import { MetricCard } from "./MetricCard";
-import { cn } from "@/lib/utils";
 
 export const ProofSection = () => {
   return (

@@ -1,4 +1,3 @@
-import Galaxy from "../Galaxy";
 import LightRays from "../LightRays";
 
 export function LightRaysCanvas() {

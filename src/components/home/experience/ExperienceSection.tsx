@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { Briefcase, GraduationCap, Code2, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";

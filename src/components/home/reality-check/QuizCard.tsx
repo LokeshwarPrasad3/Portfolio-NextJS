@@ -44,7 +44,7 @@ export const QuizCard = () => {
       });
 
       toast.custom(
-        (t) => (
+        () => (
           <div className="flex w-full max-w-xl items-center gap-4 rounded-xl border border-emerald-500/20 bg-neutral-900/95 p-4 shadow-2xl backdrop-blur-xl">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-500/20">
               <PartyPopper size={24} className="text-emerald-400" />
@@ -61,7 +61,7 @@ export const QuizCard = () => {
       );
     } else {
       toast.custom(
-        (t) => (
+        () => (
           <div className="flex w-full max-w-xl items-center gap-4 rounded-xl border border-red-500/20 bg-neutral-900/95 p-4 shadow-2xl backdrop-blur-xl">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-500/20">
               <X size={24} className="text-red-400" />

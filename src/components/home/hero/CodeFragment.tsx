@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
-
 export const CodeFragment = () => {
   return (
     <div className="relative w-full max-w-[340px] overflow-hidden rounded-xl border border-white/10 bg-[#1e1e1e]/95 shadow-2xl backdrop-blur-md">

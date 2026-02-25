@@ -136,12 +136,6 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
     };
 
     // We no longer start the animation immediately. It will be triggered by handleClick.
-    // However, we expose a way to start it if sparks somehow get added externally
-    const triggerAnimation = () => {
-      if (sparksRef.current.length > 0) {
-        animationId = requestAnimationFrame(draw);
-      }
-    };
 
     // Attach a listener to the canvas to start animation when clicks happen
     // This is a bit of a hack since handleClick is on the wrapper, but we need

@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { Star, MapPin, Users, GitFork } from "lucide-react";
+import { Star, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useGithubUser } from "@/hooks/useGithubUser";
 

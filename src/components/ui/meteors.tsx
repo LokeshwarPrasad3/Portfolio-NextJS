@@ -1,7 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import React from "react";
 
 export const Meteors = ({ number, className }: { number?: number; className?: string }) => {
   const meteors = new Array(number || 20).fill(true);
@@ -12,7 +11,7 @@ export const Meteors = ({ number, className }: { number?: number; className?: st
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0"
     >
-      {meteors.map((el, idx) => {
+      {meteors.map((_, idx) => {
         const meteorCount = number || 20;
         // Calculate position to evenly distribute meteors across container width
         const position = idx * (800 / meteorCount) - 400; // Spread across 800px range, centered

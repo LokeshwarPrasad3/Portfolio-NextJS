@@ -4,8 +4,6 @@ import { Eye, Clock, Zap } from "lucide-react";
 import { useAnalytics } from "@/hooks/analytics/useAnalytics";
 import { StatCard } from "@/components/home/stats/StatCard";
 import { StatCardSkeleton } from "./AnalyticsSkeleton";
-import { format } from "date-fns";
-import { GA_ANALYTICS_START_DATE } from "@/lib/date/date.utils";
 
 export const AnalyticsStatCards = () => {
   const { data: analytics, isLoading } = useAnalytics();
@@ -26,8 +24,6 @@ export const AnalyticsStatCards = () => {
     const s = Math.floor(seconds % 60);
     return `${m}m ${s}s`;
   };
-
-  const readable = format(new Date(GA_ANALYTICS_START_DATE), "dd MMMM yyyy");
 
   return (
     <>

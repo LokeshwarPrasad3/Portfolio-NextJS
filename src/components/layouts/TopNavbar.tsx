@@ -62,7 +62,7 @@ export function TopNavbar() {
           />
         </MobileNavHeader>
 
-        <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
+        <MobileNavMenu isOpen={isMobileMenuOpen}>
           {navItems.map((item, idx) => {
             const isActive =
               pathname === item.link || (pathname === "/" && item.link.startsWith("/#"));

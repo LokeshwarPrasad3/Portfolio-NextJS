@@ -4,7 +4,6 @@ import { IconMenu2, IconX } from "@tabler/icons-react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 import React, { useRef, useState } from "react";
 
@@ -43,7 +42,6 @@ interface MobileNavMenuProps {
   children: React.ReactNode;
   className?: string;
   isOpen: boolean;
-  onClose: () => void;
 }
 
 export const Navbar = ({ children, className }: NavbarProps) => {
@@ -177,7 +175,7 @@ export const MobileNavHeader = ({ children, className }: MobileNavHeaderProps) =
   );
 };
 
-export const MobileNavMenu = ({ children, className, isOpen, onClose }: MobileNavMenuProps) => {
+export const MobileNavMenu = ({ children, className, isOpen }: MobileNavMenuProps) => {
   return (
     <AnimatePresence>
       {isOpen && (

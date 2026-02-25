@@ -6,7 +6,7 @@ import { ContactFormData } from "@/schemas/contact";
 export const useSendMessage = () => {
   return useMutation({
     mutationFn: (data: ContactFormData) => sendMessage(data),
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success("Message sent successfully!", {
         description: "Thank you for reaching out. I'll get back to you soon.",
       });

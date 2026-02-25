@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Terminal, CheckCircle2, AlertCircle } from "lucide-react";
+import { Terminal, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const InteractiveCard = () => {

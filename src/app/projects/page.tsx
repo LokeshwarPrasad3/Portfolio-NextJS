@@ -1,5 +1,4 @@
 import { ProjectsSection } from "@/components/home/projects/ProjectsSection";
-import React from "react";
 
 const page = () => {
   return (

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import dynamic from "next/dynamic";
 import type { ApexOptions } from "apexcharts";
 
@@ -9,8 +8,6 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 import { useAnalytics } from "@/hooks/analytics/useAnalytics";
 import { ChartSkeleton } from "@/components/analytics/AnalyticsSkeleton";
-import { GA_ANALYTICS_START_DATE } from "@/lib/date/date.utils";
-import { format } from "date-fns";
 
 const TrafficChart = () => {
   const { data: analytics, isLoading, isError } = useAnalytics();
