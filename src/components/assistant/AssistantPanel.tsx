@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { ChatInterface } from "./ChatInterface";
@@ -11,6 +12,19 @@ interface AssistantPanelProps {
 }
 
 export function AssistantPanel({ isOpen, onClose }: AssistantPanelProps) {
+  // Prevent background scrolling when the panel is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -24,7 +38,7 @@ export function AssistantPanel({ isOpen, onClose }: AssistantPanelProps) {
             damping: 25,
             mass: 0.8,
           }}
-          className="fixed bottom-0 left-1/2 z-50 flex h-[95vh] w-[95vw] origin-bottom -translate-x-1/2 flex-col overflow-hidden rounded-t-2xl border border-white/10 bg-zinc-950/80 shadow-[0_10px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:right-6 sm:bottom-6 sm:left-auto sm:h-[80vh] sm:max-h-[80vh] sm:min-h-[500px] sm:w-[clamp(380px,28vw,480px)] sm:origin-bottom-right sm:translate-x-0 sm:rounded-3xl 2xl:h-[90vh] 2xl:max-h-[90vh]"
+          className="fixed bottom-0 left-1/2 z-50 flex h-[85dvh] w-[95vw] origin-bottom -translate-x-1/2 flex-col overflow-hidden rounded-t-2xl border border-white/10 bg-zinc-950/80 shadow-[0_10px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:right-6 sm:bottom-6 sm:left-auto sm:h-[80vh] sm:max-h-[80vh] sm:min-h-[500px] sm:w-[clamp(380px,28vw,480px)] sm:origin-bottom-right sm:translate-x-0 sm:rounded-3xl 2xl:h-[90vh] 2xl:max-h-[90vh]"
         >
           <ShineBorder
             className="inset-0 z-10 p-px"
