@@ -7,9 +7,10 @@ import { Toaster } from "@/components/ui/sonner";
 
 import Backgrounds from "@/components/layouts/Backgrounds";
 import { TopNavbar } from "@/components/layouts/TopNavbar";
-import { ScrollToTop } from "@/components/ui/scroll-to-top";
+// import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { BugButton } from "@/components/ui/bug-button";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import FloatingAssistantWrapper from "@/components/assistant/FloatingAssistantWrapper";
 
 const overpass = Overpass({
   variable: "--font-overpass",
@@ -34,15 +35,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${overpass.variable} ${breeSerif.variable} font-overpass dark antialiased`}>
+      <body
+        suppressHydrationWarning
+        className={`${overpass.variable} ${breeSerif.variable} font-overpass dark antialiased`}
+      >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <QueryProvider>
             <TooltipProvider>
               <TopNavbar />
               <Toaster position="top-center" richColors />
               <Backgrounds />
-              <ScrollToTop />
+              {/* <ScrollToTop /> */}
               <BugButton />
+              <FloatingAssistantWrapper />
               {children}
             </TooltipProvider>
           </QueryProvider>
