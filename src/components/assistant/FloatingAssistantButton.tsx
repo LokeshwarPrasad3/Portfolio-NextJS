@@ -21,6 +21,7 @@ export function FloatingAssistantButton({ onClick, isOpen }: FloatingAssistantBu
           whileTap={{ scale: 0.95 }}
           exit={{ scale: 0, opacity: 0 }}
           disabled={isOpen}
+          aria-label="Open AI Assistant"
           className={`group fixed right-6 bottom-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 p-[2px] shadow-[0_0_20px_rgba(168,85,247,0.4),inset_0_0_0_1px_rgba(255,255,255,0.2)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.7),inset_0_0_0_1px_rgba(255,255,255,0.4)] ${isOpen ? "pointer-events-none" : "cursor-pointer"}`}
         >
           <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-zinc-950 transition-all duration-300 group-hover:bg-zinc-900">

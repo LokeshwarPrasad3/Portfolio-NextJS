@@ -45,6 +45,7 @@ export const FeaturedProject = ({ project, index }: { project: Project; index: n
           <ProjectLinks
             liveLink={project.liveLink}
             repoLink={project.repoLink}
+            title={project.title}
             className="scale-90"
           />
         </div>

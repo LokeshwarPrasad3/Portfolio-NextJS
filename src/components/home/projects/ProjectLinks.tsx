@@ -8,13 +8,20 @@ interface ProjectLinksProps {
   liveLink?: string;
   repoLink?: string;
   className?: string;
+  title?: string;
 }
 
-export const ProjectLinks = ({ liveLink, repoLink, className }: ProjectLinksProps) => {
+export const ProjectLinks = ({ liveLink, repoLink, className, title }: ProjectLinksProps) => {
   return (
     <div className={cn("flex items-center gap-3", className)}>
       {liveLink && liveLink !== "#" && (
-        <a href={liveLink} target="_blank" rel="noopener noreferrer" className="group relative">
+        <a
+          href={liveLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative"
+          aria-label={title ? `Live Demo for ${title}` : "Live Demo"}
+        >
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -30,7 +37,12 @@ export const ProjectLinks = ({ liveLink, repoLink, className }: ProjectLinksProp
       )}
 
       {repoLink && repoLink !== "#" && (
-        <a href={repoLink} target="_blank" rel="noopener noreferrer">
+        <a
+          href={repoLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={title ? `Code Repository for ${title}` : "Code Repository"}
+        >
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

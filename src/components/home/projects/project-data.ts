@@ -13,26 +13,45 @@ export interface Project {
 export const FullStackProjectsArray: Project[] = [
   {
     id: "fs-1",
+    title: "Qualifyrs – Mock Interview Platform",
+    description:
+      "Client project: A full-stack mock interview and AI-powered preparation platform built for scalable exam practice.",
+    image: "/projects/qualifyrs.jpg",
+    category: "fullstack",
+    techStack: [
+      "Next.js",
+      "MongoDB",
+      "Redux",
+      "zod",
+      "otp signup",
+      "googleauth",
+      "Express.js",
+      "AI SDK",
+    ],
+    liveLink: "https://qualifyrs.com",
+    repoLink: "https://github.com/LokeshwarPrasad3/",
+    featured: true,
+  },
+  {
+    id: "fs-2",
     title: "Budgetter",
     description:
       "A comprehensive budget management application allowing users to track expenses, set limits, and visualize spending habits.",
     image: "/projects/budgetter.png",
     category: "fullstack",
-    techStack: ["React", "Tailwind", "Typescript", "Node.js", "MongoDB", "Express", "Redux"],
-    liveLink: "https://mybudgetter.netlify.app/",
+    techStack: [
+      "React",
+      "Tailwind",
+      "Typescript",
+      "Node.js",
+      "google auth",
+      "MongoDB",
+      "Express",
+      "Redux",
+    ],
+    liveLink: "https://budgetter.lokeshwardewangan.in/",
     repoLink: "https://github.com/LokeshwarPrasad3/Budgetter-Webapp",
     featured: true,
-  },
-  {
-    id: "fs-2",
-    title: "Birthday Wish Maker",
-    description:
-      "An interactive platform to create and share personalized birthday wishes with custom animations and messages.",
-    image: "/projects/makebirthdaywish.png",
-    category: "fullstack",
-    techStack: ["React", "Tailwind", "Framer motion", "MongoDB", "Express"],
-    liveLink: "https://makebirthday.netlify.app",
-    repoLink: "https://github.com/LokeshwarPrasad3/MakeBirthdayWish",
   },
   {
     id: "fs-3",
@@ -47,17 +66,27 @@ export const FullStackProjectsArray: Project[] = [
   },
   {
     id: "fs-4",
-    title: "Attendance Management",
-    description:
-      "A system for colleges to manage student attendance, generate reports, and track absenteeism efficiently.",
-    image: "/projects/attendance-management.png",
+    title: "AI Chat Studio",
+    description: "AI-powered conversational chat app with a fast and responsive UI.",
+    image: "/projects/chatbot.svg",
     category: "fullstack",
-    techStack: ["React", "Node.js", "MongoDB", "ContextAPI"],
-    liveLink: "https://college-attendances.netlify.app/",
-    repoLink: "https://github.com/LokeshwarPrasad3/Attendance-Management-WebApp",
+    techStack: ["Next.js", "AI SDK", "Google Gemini API", "Tailwind CSS"],
+    liveLink: "https://assistant.lokeshwardewangan.in",
+    repoLink: "https://github.com/LokeshwarPrasad3/AI-Chat-Studio-NextApp",
   },
   {
-    id: "fs-5",
+    id: "fs-7",
+    title: "Birthday Wish Maker",
+    description:
+      "An interactive platform to create and share personalized birthday wishes with custom animations and messages.",
+    image: "/projects/makebirthdaywish.png",
+    category: "fullstack",
+    techStack: ["React", "Tailwind", "Framer motion", "MongoDB", "Express"],
+    liveLink: "https://makebirthday.netlify.app",
+    repoLink: "https://github.com/LokeshwarPrasad3/MakeBirthdayWish",
+  },
+  {
+    id: "fs-8",
     title: "Real-Time Weather App",
     description:
       "Delivers accurate weather forecasts with real-time updates using OpenWeatherMap API and geolocation.",
@@ -68,7 +97,7 @@ export const FullStackProjectsArray: Project[] = [
     repoLink: "https://github.com/LokeshwarPrasad3/Real-Time-Weather-App",
   },
   {
-    id: "fs-6",
+    id: "fs-5",
     title: "College Canteen Project",
     description:
       "Digital canteen ordering system enabling students to pre-order meals and skip the queue.",
@@ -76,6 +105,17 @@ export const FullStackProjectsArray: Project[] = [
     category: "fullstack",
     techStack: ["React", "ExpressJS", "Firebase", "Razorpay", "Bootstrap"],
     liveLink: "https://canteen-webapp.netlify.app/",
+    repoLink: "https://github.com/LokeshwarPrasad3/Attendance-Management-WebApp",
+  },
+  {
+    id: "fs-6",
+    title: "Attendance Management",
+    description:
+      "A system for colleges to manage student attendance, generate reports, and track absenteeism efficiently.",
+    image: "/projects/attendance-management.png",
+    category: "fullstack",
+    techStack: ["React", "Node.js", "MongoDB", "ContextAPI"],
+    liveLink: "https://college-attendances.netlify.app/",
     repoLink: "https://github.com/LokeshwarPrasad3/Attendance-Management-WebApp",
   },
 ];

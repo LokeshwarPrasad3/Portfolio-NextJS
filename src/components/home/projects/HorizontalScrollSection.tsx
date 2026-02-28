@@ -29,7 +29,7 @@ export const HorizontalScrollSection = ({ projects }: { projects: Project[] }) =
         className="w-full pb-12"
       >
         {projects.map((project) => (
-          <SwiperSlide key={project.id} className="!w-[280px] md:!w-[320px]">
+          <SwiperSlide key={project.id} className="w-[280px]! md:w-[320px]!">
             <div className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-transform hover:scale-[1.02]">
               {/* Image */}
               <div className="relative aspect-4/3 w-full overflow-hidden">
@@ -48,6 +48,7 @@ export const HorizontalScrollSection = ({ projects }: { projects: Project[] }) =
                   <ProjectLinks
                     liveLink={project.liveLink}
                     repoLink={project.repoLink}
+                    title={project.title}
                     className="scale-90"
                   />
                 </div>

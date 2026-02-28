@@ -68,7 +68,7 @@ export const FeaturedBadge = () => {
                   Track every rupee, analyze spending patterns, and Spend Smarter Every Day.
                 </p>
                 <Link
-                  href="https://mybudgetter.netlify.app"
+                  href="https://budgetter.lokeshwardewangan.in"
                   target="_blank"
                   className="group/cta mt-2 flex w-fit items-center gap-2 rounded-lg py-1 text-sm font-semibold text-pink-400 transition-colors hover:text-pink-300"
                 >

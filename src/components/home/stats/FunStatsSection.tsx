@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
 import dynamic from "next/dynamic";
 import { AnalyticsStatCards } from "@/components/analytics/StatCards";
 
@@ -14,6 +15,9 @@ const TrafficChart = dynamic(() => import("@/components/analytics/TrafficChart")
 });
 
 export const FunStatsSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "200px" });
+
   return (
     <section className="relative z-10 w-full overflow-hidden px-6 py-12 lg:px-12 lg:py-12 2xl:py-20">
       <div className="container mx-auto max-w-4xl 2xl:max-w-7xl">
@@ -38,8 +42,14 @@ export const FunStatsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-          <div className="order-2 col-span-1 lg:order-1 lg:col-span-9">
-            <TrafficChart />
+          <div ref={ref} className="order-2 col-span-1 min-h-[350px] lg:order-1 lg:col-span-9">
+            {isInView ? (
+              <TrafficChart />
+            ) : (
+              <div className="flex h-full w-full animate-pulse items-center justify-center rounded-xl border border-slate-800 bg-slate-900/50 p-6 text-slate-400 shadow-xl backdrop-blur-sm">
+                Loading Chart Analytics...
+              </div>
+            )}
           </div>
 
           <div className="order-1 col-span-1 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:order-2 lg:col-span-3 lg:grid-cols-1 lg:gap-6">

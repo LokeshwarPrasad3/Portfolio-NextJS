@@ -51,6 +51,7 @@ export const ReactProjects = ({ projects }: { projects: Project[] }) => {
               <ProjectLinks
                 liveLink={project.liveLink}
                 repoLink={project.repoLink}
+                title={project.title}
                 className="scale-90"
               />
             </div>

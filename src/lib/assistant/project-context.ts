@@ -37,6 +37,13 @@ const techMapping: Record<string, string> = {
   frontend: "frontend",
   "front end": "frontend",
   "front-end": "frontend",
+  "google auth": "googleauth",
+  googleauth: "googleauth",
+  "otp signup": "otp",
+  otp: "otp",
+  gemini: "google gemini api",
+  "ai sdk": "ai sdk",
+  firebase: "firebase",
 };
 
 /**
@@ -141,6 +148,13 @@ export const TECH_KEYWORDS = [
   "frontend",
   "front end",
   "front-end",
+  "zod",
+  "otp",
+  "googleauth",
+  "google auth",
+  "ai sdk",
+  "gemini",
+  "firebase",
 ];
 
 /**

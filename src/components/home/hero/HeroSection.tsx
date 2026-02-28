@@ -87,7 +87,7 @@ export const HeroSection = () => {
               <span
                 ref={typedEl}
                 style={{ fontFamily: "var(--font-bree-serif)" }}
-                className={`bg-linear-to-r bg-clip-text text-transparent ${gradientClass} transition-colors duration-300`}
+                className={`bg-linear-to-r bg-clip-text text-transparent ${gradientClass}`}
               />
             </h1>
           </div>
@@ -241,7 +241,7 @@ export const HeroSection = () => {
                 src={DecorativeImage1}
                 alt="Decorative background"
                 fill
-                sizes="(max-width: 768px) 160px, 250px"
+                sizes="(max-width: 1280px) 220px, 160px"
                 placeholder="blur"
                 priority
                 fetchPriority="high"
@@ -261,7 +261,7 @@ export const HeroSection = () => {
                 src={DecorativeImage2}
                 alt="Decorative background"
                 fill
-                sizes="(max-width: 768px) 160px, 260px"
+                sizes="(max-width: 1280px) 220px, 160px"
                 placeholder="blur"
                 className="object-cover opacity-80 mix-blend-multiply grayscale dark:mix-blend-screen"
                 priority
