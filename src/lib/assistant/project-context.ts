@@ -31,6 +31,12 @@ const techMapping: Record<string, string> = {
   tailwindcss: "tailwind",
   postgres: "postgresql",
   postgresql: "postgresql",
+  fullstack: "fullstack",
+  "full stack": "fullstack",
+  "full-stack": "fullstack",
+  frontend: "frontend",
+  "front end": "frontend",
+  "front-end": "frontend",
 };
 
 /**
@@ -53,14 +59,26 @@ export function getProjectsByTech(techKeyword: string): Project[] {
   const seenIds = new Set<string>();
 
   for (const project of allProjects) {
-    // Return max 3
     if (matchedProjects.length >= 3) break;
 
     // Ignore projects with placeholder links
     if (project.liveLink === "#") continue;
 
-    // Check if any tech in stack matches
-    const hasMatch = project.techStack.some((tech) => {
+    // 1. Check if the keyword matches the project's overall category
+    let isCategoryMatch = false;
+    if (normalizedKeyword === "fullstack" && project.category === "fullstack") {
+      isCategoryMatch = true;
+    } else if (
+      normalizedKeyword === "frontend" &&
+      (project.category === "react" || project.category === "js")
+    ) {
+      isCategoryMatch = true;
+    } else if (normalizedKeyword === "react" && project.category === "react") {
+      isCategoryMatch = true;
+    }
+
+    // 2. Check if any tech in stack matches
+    const hasTechMatch = project.techStack.some((tech) => {
       const normalizedStackTech = normalizeTech(tech);
       return (
         normalizedStackTech.includes(normalizedKeyword) ||
@@ -68,7 +86,7 @@ export function getProjectsByTech(techKeyword: string): Project[] {
       );
     });
 
-    if (hasMatch && !seenIds.has(project.id)) {
+    if ((isCategoryMatch || hasTechMatch) && !seenIds.has(project.id)) {
       matchedProjects.push(project);
       seenIds.add(project.id);
     }
@@ -117,6 +135,12 @@ export const TECH_KEYWORDS = [
   "redux",
   "zustand",
   "prisma",
+  "fullstack",
+  "full stack",
+  "full-stack",
+  "frontend",
+  "front end",
+  "front-end",
 ];
 
 /**
@@ -132,7 +156,7 @@ export function buildSystemPrompt(lastUserMessage: string, basePrompt: string): 
     const projects = getProjectsByTech(matchedTech);
     if (projects.length > 0) {
       const dynamicContext =
-        `\n\n### RELEVANT PROJECTS FOR THIS QUERY ###\nThe user asked about a technology related to "${matchedTech}". Here are his actual real projects using this technology. Use ONLY this data to confidently answer their question in the requested response format. NEVER invent projects.\n\n` +
+        `\n\n### RELEVANT PROJECTS FOR THIS QUERY ###\nThe user asked about "${matchedTech}". Here are his actual real projects matching this category/technology. Use ONLY this data to confidently answer their question in the requested response format. NEVER invent projects.\n\n` +
         formatProjectsForAI(projects);
       finalSystemPrompt += dynamicContext;
     }
