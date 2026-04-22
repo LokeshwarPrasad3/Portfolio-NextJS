@@ -43,7 +43,7 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://picsum.photos https://skillicons.dev https://lokeshwardewangan.in https://avatars.githubusercontent.com; font-src 'self'; connect-src 'self' blob: data: https://api.github.com; worker-src 'self' blob:;",
+              "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: https://*.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://picsum.photos https://skillicons.dev https://lokeshwardewangan.in https://avatars.githubusercontent.com https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' blob: data: https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; worker-src 'self' blob:;",
           },
         ],
       },

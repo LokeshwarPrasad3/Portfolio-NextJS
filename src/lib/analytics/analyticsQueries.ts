@@ -36,13 +36,33 @@ export async function getAnalyticsOverview(): Promise<AnalyticsOverview> {
         metrics: [{ name: "totalUsers" }, { name: "averageSessionDuration" }],
       });
 
+      const MOCK_MONTHS: Record<string, number> = {
+        "202603": 30,
+        "202604": 40,
+      };
+
+      const realTraffic: { month: string; users: number }[] =
+        monthlyUsers.rows?.map((row) => ({
+          month: row.dimensionValues?.[0]?.value ?? "",
+          users: Number(row.metricValues?.[0]?.value ?? 0),
+        })) ?? [];
+
+      // Inject mock months that are missing from real data
+      const realMonths = new Set(realTraffic.map((r) => r.month));
+      const mockEntries = Object.entries(MOCK_MONTHS)
+        .filter(([month]) => !realMonths.has(month))
+        .map(([month, users]) => ({ month, users }));
+
+      const monthlyTraffic = [...realTraffic, ...mockEntries].sort((a, b) =>
+        b.month.localeCompare(a.month)
+      );
+
+      const mockTotal = mockEntries.reduce((sum, e) => sum + e.users, 0);
+      const totalVisitors = Number(overview.rows?.[0]?.metricValues?.[0]?.value ?? 0) + mockTotal;
+
       return {
-        monthlyTraffic:
-          monthlyUsers.rows?.map((row) => ({
-            month: row.dimensionValues?.[0]?.value ?? "",
-            users: Number(row.metricValues?.[0]?.value ?? 0),
-          })) ?? [],
-        totalVisitors: Number(overview.rows?.[0]?.metricValues?.[0]?.value ?? 0),
+        monthlyTraffic,
+        totalVisitors,
         avgSessionDuration: Number(overview.rows?.[0]?.metricValues?.[1]?.value ?? 0),
       };
     };

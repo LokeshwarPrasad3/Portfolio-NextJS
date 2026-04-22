@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import QueryProvider from "@/providers/query-provider";
 import { Toaster } from "@/components/ui/sonner";
+import Script from "next/script";
 
 import Backgrounds from "@/components/layouts/Backgrounds";
 import { TopNavbar } from "@/components/layouts/TopNavbar";
@@ -27,6 +28,8 @@ export const metadata: Metadata = {
   title: "Lokeshwar Prasad Dewangan",
   description: "Full-stack developer portfolio",
 };
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export default function RootLayout({
   children,
@@ -52,6 +55,22 @@ export default function RootLayout({
             </TooltipProvider>
           </QueryProvider>
         </ThemeProvider>
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
