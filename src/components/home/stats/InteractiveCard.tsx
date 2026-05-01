@@ -80,10 +80,7 @@ export const InteractiveCard = () => {
                 className="flex flex-col items-center gap-2"
               >
                 <span
-                  className={cn(
-                    "font-bree text-5xl font-bold",
-                    errors === 0 ? "text-white" : "text-red-400"
-                  )}
+                  className={cn("text-5xl font-bold", errors === 0 ? "text-white" : "text-red-400")}
                 >
                   {errors}
                 </span>

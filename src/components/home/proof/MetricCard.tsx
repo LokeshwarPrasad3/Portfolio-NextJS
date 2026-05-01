@@ -56,7 +56,7 @@ export const MetricCard = ({
             <h3 className="text-sm font-medium">{label}</h3>
           </div>
           <div className="mt-2">
-            <span className="font-bree text-2xl font-bold tracking-tight text-white sm:text-3xl 2xl:text-4xl">
+            <span className="text-2xl font-bold tracking-tight text-white sm:text-3xl 2xl:text-4xl">
               {value}
             </span>
           </div>

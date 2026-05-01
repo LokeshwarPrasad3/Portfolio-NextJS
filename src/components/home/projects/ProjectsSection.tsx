@@ -35,12 +35,12 @@ export const ProjectsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="font-bree mb-4 text-2xl font-bold tracking-wide sm:text-3xl 2xl:text-4xl">
-              <span className="bg-linear-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+            <h2 className="mb-4 text-2xl font-bold tracking-wide sm:text-3xl 2xl:text-4xl">
+              <span className="bg-linear-to-r from-rose-400 via-pink-500 to-fuchsia-500 bg-clip-text text-transparent">
                 Selected Works
               </span>
             </h2>
-            <p className="mx-auto max-w-xl text-xs text-white/60 sm:text-xs 2xl:text-base">
+            <p className="text-muted-foreground/80 mx-auto max-w-xl text-xs tracking-wide sm:text-xs 2xl:text-base">
               A collection of projects exploring modern web technologies.
             </p>
           </motion.div>
