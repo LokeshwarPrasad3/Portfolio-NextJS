@@ -21,7 +21,7 @@ export const OneLastThing = () => {
             <Sparkles size={20} className="text-yellow-400" />
           </div>
 
-          <h2 className="font-bree text-2xl leading-tight font-medium text-white/90 md:text-3xl">
+          <h2 className="text-2xl leading-tight font-medium text-white/90 md:text-3xl">
             "If you scrolled this far, <br className="hidden sm:block" />
             we’ll probably get along."
           </h2>

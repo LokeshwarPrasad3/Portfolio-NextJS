@@ -28,13 +28,13 @@ export const FunStatsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-bree mb-4 text-2xl font-bold tracking-wide sm:text-3xl 2xl:text-4xl">
-              <span className="bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">
+            <h2 className="mb-4 text-2xl font-bold tracking-wide sm:text-3xl 2xl:text-4xl">
+              <span className="bg-linear-to-r from-violet-400 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
                 Website Traffic Overview
               </span>
             </h2>
 
-            <p className="text-muted-foreground mx-auto max-w-xl text-xs sm:text-xs 2xl:text-base">
+            <p className="text-muted-foreground/80 mx-auto max-w-xl text-xs tracking-wide sm:text-xs 2xl:text-base">
               A snapshot of real user traffic, engagement metrics, and month-over-month growth
               across the platform.
             </p>

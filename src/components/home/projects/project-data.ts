@@ -15,7 +15,7 @@ export const FullStackProjectsArray: Project[] = [
     id: "fs-1",
     title: "SiteLense",
     description:
-      "Enterprise-grade auditing SaaS powered by Lighthouse. Built with Next.js for scalable, real-time SEO and performance visualization.",
+      "Production-grade website auditing SaaS built on Lighthouse. Delivers real-time SEO, performance, and accessibility insights with Next.js and scalable API architecture.",
     image: "/projects/sitelense.png",
     category: "fullstack",
     techStack: [
@@ -39,7 +39,7 @@ export const FullStackProjectsArray: Project[] = [
     id: "fs-2",
     title: "Trimly",
     description:
-      "AWS-deployed URL shortening platform with robust click analytics. Architected with PostgreSQL and Next.js for high-throughput reliability.",
+      "Production URL shortener deployed on AWS with end-to-end click analytics and geographic tracking. Architected with Next.js, PostgreSQL, and Prisma for reliability at scale.",
     image: "/projects/trimly.png",
     category: "fullstack",
     techStack: [
@@ -62,7 +62,7 @@ export const FullStackProjectsArray: Project[] = [
     id: "fs-3",
     title: "Budgetter",
     description:
-      "Production financial dashboard actively managing expenses for 20+ users over two years. Built on an optimized Redux architecture.",
+      "Live financial dashboard with 40+ registered users tracking real expenses over two years. Production-ready full-stack app with Google Auth, Redux state management, and persistent cloud storage.",
     image: "/projects/budgetter.png",
     category: "fullstack",
     techStack: [
@@ -83,7 +83,7 @@ export const FullStackProjectsArray: Project[] = [
     id: "fs-4",
     title: "Qualifyrs – Mock Interview Platform",
     description:
-      "AI-driven mock interview platform engineered for scalable, concurrent exam simulations and real-time AI evaluations.",
+      "AI-powered mock interview platform built for concurrent exam simulations and real-time AI evaluation. Scalable architecture with OTP auth, Google login, and production deployment at qualifyrs.com.",
     image: "/projects/qualifyrs.jpg",
     category: "fullstack",
     techStack: [
@@ -109,7 +109,7 @@ export const FullStackProjectsArray: Project[] = [
     category: "fullstack",
     techStack: ["React", "Socket.io", "Node.js", "Material UI", "Express", "MongoDB"],
     liveLink: "https://pingpoint.lokeshwardewangan.in/",
-    repoLink: "https://github.com/lokeshwardewangan/Real-Time-ChatApp",
+    repoLink: "https://github.com/lokeshwardewangan/PingPoing",
   },
   {
     id: "fs-6",
@@ -126,7 +126,7 @@ export const FullStackProjectsArray: Project[] = [
     id: "fs-7",
     title: "Birthday Wish Maker",
     description:
-      "Interactive multimedia app delivering personalized animations for 20+ active users. Optimized for high-performance, cross-platform rendering.",
+      "Personalized birthday animation platform used by 20+ registered users. Production-deployed full-stack app with dynamic multimedia rendering, MongoDB-backed user profiles, and cross-platform performance.",
     image: "/projects/makebirthdaywish.png",
     category: "fullstack",
     techStack: ["React", "Tailwind", "Framer motion", "MongoDB", "Express"],

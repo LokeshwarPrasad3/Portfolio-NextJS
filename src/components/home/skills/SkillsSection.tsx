@@ -70,6 +70,10 @@ const technologies = [
     name: "MongoDB",
     slug: "mongodb",
   },
+  {
+    name: "AWS",
+    slug: "aws",
+  },
 ];
 
 const firstRow = technologies.slice(0, Math.ceil(technologies.length / 2));
@@ -113,12 +117,12 @@ export function SkillsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-bree mb-4 text-2xl font-bold tracking-wide sm:text-3xl 2xl:text-4xl">
-              <span className="bg-linear-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
+            <h2 className="mb-4 text-2xl font-bold tracking-wide sm:text-3xl 2xl:text-4xl">
+              <span className="bg-linear-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">
                 My Tech Arsenal
               </span>
             </h2>
-            <p className="text-muted-foreground mx-auto max-w-xl text-xs leading-relaxed font-light sm:text-xs 2xl:text-base">
+            <p className="text-muted-foreground/80 mx-auto max-w-xl text-xs tracking-wide sm:text-xs 2xl:text-base">
               I don't just know these tools; I build with them. From frontend finesse to backend
               robustness, this is the stack that powers my work.
             </p>

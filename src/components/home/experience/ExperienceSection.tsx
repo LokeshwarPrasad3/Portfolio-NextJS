@@ -8,13 +8,12 @@ import { cn } from "@/lib/utils";
 const experiences = [
   {
     id: 1,
-    title: "UI/UX Developer",
+    title: "Software Developer",
     company: "Globussoft",
     date: "July 2024 - Present",
     description: (
       <>
-        Building and improving responsive, user-friendly web applications using modern frontend
-        technologies. Developed projects including{" "}
+        Developed and shipped production-ready WebUI for{" "}
         <a
           href="https://powerbrowser.app/"
           target="_blank"
@@ -22,17 +21,18 @@ const experiences = [
           className="text-blue-400 hover:underline"
         >
           PowerBrowser
-        </a>{" "}
-        (Web UI of a Chromium-based browser),{" "}
+        </a>
+        , a Chromium-based browser — owned the UI implementation for adblocker, system sync,
+        extensions management, and{" "}
         <a
-          href="https://news.powerbrowser.app/"
+          href="https://powerbrowser.app/powerpoints/"
           target="_blank"
           rel="noreferrer"
           className="text-blue-400 hover:underline"
         >
-          PowerNews
-        </a>
-        , and{" "}
+          PowerPoints
+        </a>{" "}
+        features across multiple releases. Separately delivered frontend for{" "}
         <a
           href="https://adsgpt.io/"
           target="_blank"
@@ -40,8 +40,18 @@ const experiences = [
           className="text-blue-400 hover:underline"
         >
           AdsGPT
-        </a>
-        . Officially recognized via employee testimonial.
+        </a>{" "}
+        (a generative AI platform for creating ads) and{" "}
+        <a
+          href="https://news.powerbrowser.app/"
+          target="_blank"
+          rel="noreferrer"
+          className="text-blue-400 hover:underline"
+        >
+          PowerNews
+        </a>{" "}
+        (a news platform with local and category-based feeds) — both live products serving real
+        users.
       </>
     ),
     link: "https://globussoft.com/employee-testimonials/",
@@ -50,21 +60,22 @@ const experiences = [
   },
   {
     id: 2,
-    title: "Full-Stack Developer",
-    company: "IJSRGI (College Journal Website)",
+    title: "Software Trainee (Internship)",
+    company: "IJSRGI — Rungta Group Of Institutions",
     date: "Feb 2024",
     description: (
       <>
-        Designed, developed, and supported initial maintenance of the{" "}
+        Built a production-ready{" "}
         <a
           href="https://ijsrgi.com/"
           target="_blank"
           rel="noreferrer"
           className="text-blue-400 hover:underline"
         >
-          official journal website
+          journal management platform
         </a>{" "}
-        for the college, streamlining the paper submission and publication process.
+        with fullstack development and UI/UX design — handling paper submissions, publication
+        workflows, and content management for real-world usage.
       </>
     ),
     link: "https://ijsrgi.com/",
@@ -112,12 +123,12 @@ export const ExperienceSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-bree mb-4 text-3xl font-bold tracking-wide sm:text-4xl 2xl:text-5xl">
-              <span className="bg-linear-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <h2 className="mb-4 text-3xl font-bold tracking-wide sm:text-4xl 2xl:text-5xl">
+              <span className="bg-linear-to-r from-blue-400 via-indigo-500 to-violet-500 bg-clip-text text-transparent">
                 My Journey
               </span>
             </h2>
-            <p className="text-muted-foreground text-xs sm:text-xs 2xl:text-base">
+            <p className="text-muted-foreground/80 text-xs tracking-wide sm:text-xs 2xl:text-base">
               A chronological roadmap of my professional growth, educational background, and
               significant milestones.
             </p>
@@ -202,7 +213,7 @@ export const ExperienceSection = () => {
                         >
                           {exp.date}
                         </span>
-                        <h3 className="font-bree mt-2 text-xl font-bold tracking-wide text-white 2xl:text-2xl">
+                        <h3 className="mt-2 text-xl font-bold tracking-wide text-white 2xl:text-2xl">
                           {exp.link ? (
                             <a
                               href={exp.link}

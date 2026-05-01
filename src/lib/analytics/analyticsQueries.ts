@@ -47,21 +47,22 @@ export async function getAnalyticsOverview(): Promise<AnalyticsOverview> {
           users: Number(row.metricValues?.[0]?.value ?? 0),
         })) ?? [];
 
-      // Inject mock months that are missing from real data
-      const realMonths = new Set(realTraffic.map((r) => r.month));
-      const mockEntries = Object.entries(MOCK_MONTHS)
-        .filter(([month]) => !realMonths.has(month))
-        .map(([month, users]) => ({ month, users }));
+      // Always override mocked months — replace GA value with mock value
+      const overriddenRealTotal = realTraffic
+        .filter((r) => r.month in MOCK_MONTHS)
+        .reduce((sum, r) => sum + r.users, 0);
 
-      const monthlyTraffic = [...realTraffic, ...mockEntries].sort((a, b) =>
-        b.month.localeCompare(a.month)
-      );
+      const mergedTraffic = realTraffic
+        .filter((r) => !(r.month in MOCK_MONTHS)) // remove GA rows for mocked months
+        .concat(Object.entries(MOCK_MONTHS).map(([month, users]) => ({ month, users })))
+        .sort((a, b) => b.month.localeCompare(a.month));
 
-      const mockTotal = mockEntries.reduce((sum, e) => sum + e.users, 0);
-      const totalVisitors = Number(overview.rows?.[0]?.metricValues?.[0]?.value ?? 0) + mockTotal;
+      const mockTotal = Object.values(MOCK_MONTHS).reduce((sum, v) => sum + v, 0);
+      const gaTotal = Number(overview.rows?.[0]?.metricValues?.[0]?.value ?? 0);
+      const totalVisitors = gaTotal - overriddenRealTotal + mockTotal;
 
       return {
-        monthlyTraffic,
+        monthlyTraffic: mergedTraffic,
         totalVisitors,
         avgSessionDuration: Number(overview.rows?.[0]?.metricValues?.[1]?.value ?? 0),
       };

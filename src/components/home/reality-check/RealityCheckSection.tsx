@@ -16,12 +16,12 @@ export const RealityCheckSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-bree mb-4 text-xl font-bold tracking-wide sm:text-2xl 2xl:text-4xl">
+            <h2 className="mb-4 text-xl font-bold tracking-wide sm:text-2xl 2xl:text-4xl">
               <span className="bg-linear-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                 Quick Frontend Reality Check
               </span>
             </h2>
-            <p className="text-muted-foreground text-xs sm:text-xs 2xl:text-base">
+            <p className="text-muted-foreground text-xs tracking-wide sm:text-xs 2xl:text-base">
               Not a test. Just curiosity.
             </p>
           </motion.div>

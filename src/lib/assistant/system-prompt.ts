@@ -25,7 +25,7 @@ RESUME DATA:
 
 **Contact Info:**
 - Email: [lokeshwar.prasad.cse@gmail.com](mailto:lokeshwar.prasad.cse@gmail.com)
-- LinkedIn: [linkedin.com/in/lokeshwar-prasad-dewangan](https://linkedin.com/in/lokeshwar-prasad-dewangan)
+- LinkedIn: [linkedin.com/in/lokeshwar-dewangan-7b2163211](https://www.linkedin.com/in/lokeshwar-dewangan-7b2163211/)
 - Contact Page: [/contact](/contact)
 
 **Experience & Education:**

@@ -20,15 +20,15 @@ export const ProofSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-bree mb-4 text-2xl font-bold tracking-wide sm:text-3xl 2xl:text-4xl">
-              <span className="bg-linear-to-r from-emerald-400 via-green-500 to-teal-500 bg-clip-text text-transparent">
+            <h2 className="mb-4 text-2xl font-bold tracking-wide sm:text-3xl 2xl:text-4xl">
+              <span className="bg-linear-to-r from-emerald-400 via-teal-500 to-cyan-500 bg-clip-text text-transparent">
                 Proof of Skill
               </span>{" "}
               {/* <span className="text-muted-foreground/50 mt-2 block text-2xl font-light italic sm:mt-0 sm:inline md:text-3xl">
                 (Not Just Claims)
               </span> */}
             </h2>
-            <p className="text-muted-foreground max-w-xl text-xs sm:text-xs 2xl:text-base">
+            <p className="text-muted-foreground/80 max-w-xl text-xs sm:text-xs 2xl:text-base">
               Anyone can say "I care about performance." This page proves it.
               <br className="hidden sm:block" />
               Here are the real metrics of the site you're using right now.

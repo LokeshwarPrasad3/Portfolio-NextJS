@@ -51,12 +51,12 @@ export const AchievementsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-bree mb-4 text-3xl font-bold tracking-wide sm:text-4xl 2xl:text-5xl">
-              <span className="bg-linear-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+            <h2 className="mb-4 text-3xl font-bold tracking-wide sm:text-4xl 2xl:text-5xl">
+              <span className="bg-linear-to-r from-amber-400 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
                 Milestones & Recognition
               </span>
             </h2>
-            <p className="text-muted-foreground text-xs sm:text-xs 2xl:text-base">
+            <p className="text-muted-foreground/80 text-xs tracking-wide sm:text-xs 2xl:text-base">
               Awards, certifications, and moments where hard work paid off.
             </p>
           </motion.div>

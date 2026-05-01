@@ -53,11 +53,11 @@ export const FeaturedProject = ({ project, index }: { project: Project; index: n
 
       {/* Content Section */}
       <div className="flex flex-1 flex-col p-4 2xl:p-5">
-        <div className="mb-0 flex items-start justify-between gap-2 2xl:mb-3 2xl:gap-4">
+        <div className="relative mb-0 flex items-start justify-between gap-2 2xl:mb-3 2xl:gap-4">
           <h3 className="text-base font-bold text-white sm:text-lg 2xl:text-2xl">
             {project.title}
           </h3>
-          <span className="text-2xl font-bold text-white/5 sm:text-3xl 2xl:text-4xl">
+          <span className="absolute right-0 bottom-0 text-2xl font-bold text-white/10 sm:text-3xl 2xl:text-4xl">
             0{index + 1}
           </span>
         </div>

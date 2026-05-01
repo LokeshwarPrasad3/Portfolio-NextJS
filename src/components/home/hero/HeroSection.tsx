@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Typed from "typed.js";
 import { motion, useTransform, useSpring, useMotionValue } from "motion/react";
 import { ArrowRight, Mail } from "lucide-react";
 import Image from "next/image";
@@ -9,6 +7,8 @@ import dynamic from "next/dynamic";
 import { ImageTransition } from "./ImageTransition";
 import { ToolButton } from "./ToolButton";
 import { FeaturedBadge } from "./FeaturedBadge";
+import { TechStackPills } from "./TechStackPills";
+import { TypedHeading } from "./TypedHeading";
 import { ShineBorder } from "@/components/ui/shine-border";
 import DecorativeImage1 from "@/assets/images/transition/decorative-bg-1.jpeg";
 import DecorativeImage2 from "@/assets/images/transition/decorative-bg-2.jpeg";
@@ -16,10 +16,6 @@ import DecorativeImage2 from "@/assets/images/transition/decorative-bg-2.jpeg";
 const CometPath = dynamic(() => import("./CometPath"), { ssr: false });
 
 export const HeroSection = () => {
-  const typedEl = useRef(null);
-  const typed = useRef<Typed | null>(null);
-  const [gradientClass, setGradientClass] = useState("from-pink-500 to-yellow-500");
-
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const smoothX = useSpring(mouseX, { stiffness: 30, damping: 50 });
@@ -34,34 +30,7 @@ export const HeroSection = () => {
 
   // Parallax Transforms
   const moveBack = useTransform(smoothX, (x) => x * 0.015);
-
   const tiltImg = useTransform(smoothX, [-800, 800], [-2, 2]);
-
-  useEffect(() => {
-    const options = {
-      strings: ["Developer", "Programmer", "Engineer"],
-      typeSpeed: 60,
-      backSpeed: 40,
-      backDelay: 2000,
-      loop: true,
-      showCursor: true,
-      cursorChar: "|",
-      autoInsertCss: true,
-      preStringTyped: (arrayPos: number) => {
-        // Change gradient based on word index
-        if (arrayPos === 0)
-          setGradientClass("from-pink-500 to-yellow-500"); // Developer
-        else if (arrayPos === 1)
-          setGradientClass("from-purple-500 to-pink-500"); // Programmer
-        else if (arrayPos === 2) setGradientClass("from-green-400 to-cyan-500"); // Engineer
-      },
-    };
-
-    typed.current = new Typed(typedEl.current, options);
-    return () => {
-      typed.current?.destroy();
-    };
-  }, []);
 
   return (
     <section
@@ -78,29 +47,24 @@ export const HeroSection = () => {
         <div className="relative z-10 flex w-full flex-col items-center justify-center gap-6 text-center lg:w-[55%] lg:items-start lg:pr-10 lg:text-left">
           <CometPath />
 
-          <div className="font-bree relative flex min-h-[100px] flex-col justify-center gap-2 sm:min-h-[120px] lg:min-h-[140px]">
-            <span className="text-foreground block text-xl font-bold sm:text-2xl lg:text-3xl">
-              Hey,
-            </span>
-            <h1 className="text-foreground text-3xl leading-tight font-medium tracking-wide sm:text-4xl lg:text-5xl">
-              I am{" "}
-              <span
-                ref={typedEl}
-                style={{ fontFamily: "var(--font-bree-serif)" }}
-                className={`bg-linear-to-r bg-clip-text text-transparent ${gradientClass}`}
-              />
-            </h1>
-          </div>
+          <TypedHeading />
 
           <motion.p
-            initial={{ opacity: 0, y: 5 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-muted-foreground max-w-2xl text-base leading-relaxed sm:text-lg"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-muted-foreground max-w-xl text-base leading-relaxed sm:text-[1.05rem]"
           >
-            I’m Lokeshwar Prasad Dewangan, a full-stack developer building modern, scalable web
-            experiences with a strong focus on UI, performance, and thoughtful interactions.
+            I’m Lokeshwar Prasad Dewangan, Full-stack engineer building{" "}
+            <span className="text-foreground font-semibold">production-grade web systems</span> —
+            end-to-end, with a sharp focus on{" "}
+            <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text font-semibold text-transparent">
+              performance, scalability & clean architecture.
+            </span>
           </motion.p>
+
+          {/* Tech stack pills */}
+          <TechStackPills />
 
           <FeaturedBadge />
 
@@ -109,7 +73,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-wrap items-center justify-center gap-4 pt-4 lg:justify-start"
+            className="flex flex-wrap items-center justify-center gap-4 rounded-full pt-0 lg:justify-start"
           >
             <ToolButton icon={Mail}>Hire Me</ToolButton>
             <ToolButton variant="secondary" icon={ArrowRight}>

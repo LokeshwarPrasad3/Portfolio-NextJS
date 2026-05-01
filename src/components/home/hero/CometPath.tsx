@@ -8,7 +8,7 @@ export default function CometPath() {
 
   // Configuration
   const steps = 2;
-  const stepSize = 60;
+  const stepSize = 40;
   const visibleLength = 80;
 
   // Calculate the actual path length mathematically
@@ -25,7 +25,7 @@ export default function CometPath() {
   }, [steps, stepSize]);
 
   return (
-    <div className="absolute -top-34 left-0 w-fit rotate-180 md:-left-10">
+    <div className="absolute -top-38 -left-17 w-fit rotate-180 md:left-8">
       <svg
         width={size}
         height={size}

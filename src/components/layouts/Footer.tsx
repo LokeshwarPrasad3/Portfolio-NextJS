@@ -14,19 +14,21 @@ export const Footer = () => {
       <div className="container mx-auto max-w-4xl 2xl:max-w-7xl">
         <div className="mb-12 flex flex-col items-center justify-between gap-6 rounded-2xl border border-white/5 bg-white/5 p-8 backdrop-blur-md sm:flex-row md:px-12 2xl:mb-20">
           <div className="text-center sm:text-left">
-            <h2 className="font-bree text-lg font-bold text-white sm:text-xl 2xl:text-2xl">
-              Have an idea?
-            </h2>
-            <p className="text-muted-foreground text-xs sm:text-xs 2xl:text-base">
+            <h2 className="text-lg font-bold text-white sm:text-xl 2xl:text-2xl">Have an idea?</h2>
+            <p className="text-muted-foreground text-xs tracking-wide sm:text-xs 2xl:text-base">
               Let’s build something clean, fast, and scalable.
             </p>
           </div>
-          <motion.button
+          <motion.a
+            href="https://www.linkedin.com/in/lokeshwar-dewangan-7b2163211/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Connect on LinkedIn"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="group relative flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-black transition-all hover:bg-white/90 sm:text-sm 2xl:px-6 2xl:py-3"
           >
-            <span>Get in touch</span>
+            <span>Connect on LinkedIn</span>
             <ArrowUpRight
               size={16}
               className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -34,12 +36,12 @@ export const Footer = () => {
 
             {/* Button Glow */}
             <div className="absolute -inset-1 rounded-full bg-white/20 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
-          </motion.button>
+          </motion.a>
         </div>
 
         <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-12 2xl:mb-20">
           <div className="flex flex-col gap-4 md:col-span-5">
-            <h2 className="font-bree text-base font-bold tracking-tight text-white sm:text-lg 2xl:text-xl">
+            <h2 className="text-base font-bold tracking-tight text-white sm:text-lg 2xl:text-xl">
               Lokeshwar Prasad.
             </h2>
             <p className="text-muted-foreground/80 max-w-xs text-xs leading-relaxed sm:text-xs 2xl:text-base">
@@ -48,18 +50,18 @@ export const Footer = () => {
             <div className="mt-2 flex items-center gap-4">
               <TooltipProvider>
                 {[
-                  { icon: Github, href: "https://github.com/lokeshwardewangan", label: "GitHub" },
+                  { icon: Github, href: "https://github.com/lokeshwardewangan/", label: "GitHub" },
                   {
                     icon: Linkedin,
-                    href: "https://www.linkedin.com/in/lokeshwar-prasad-dewangan-7b2163211/",
+                    href: "https://www.linkedin.com/in/lokeshwar-dewangan-7b2163211/",
                     label: "LinkedIn",
                   },
                   {
                     icon: Instagram,
-                    href: "https://www.instagram.com/lokeshwar.me/",
+                    href: "https://www.instagram.com/lokeshwar.me",
                     label: "Instagram",
                   },
-                  { icon: Twitter, href: "https://twitter.com/LokeshwarPras17", label: "Twitter" },
+                  { icon: Twitter, href: "https://x.com/lokeshwar_dev", label: "Twitter" },
                   { icon: Mail, href: "mailto:lokeshwar.prasad.cse@gmail.com", label: "Email" },
                 ].map((social, idx) => (
                   <Tooltip key={idx}>
